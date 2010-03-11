@@ -17,7 +17,7 @@ def glob(pattern, opts = {})
   i = exp_path.index("**")
   content = []
   if i && opts[:sub_nodes]
-    Dir.glob(pattern).each do |fp|
+    Dir.glob(exp_path).each do |fp|
       fp_rest = fp[i..-1]
       splitted = fp_rest.split("/")
       if (splitted.length > 1)
