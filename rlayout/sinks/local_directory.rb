@@ -3,6 +3,8 @@
 # http://cheind.wordpress.com
 #
 
+require 'fileutils'
+
 module RLayout
   module Sinks
   
@@ -10,21 +12,20 @@ module RLayout
     class LocalDirectory
       
       # Initialize with directory path to generate to
-      def initialize(directory_path, opts = {:force = > true, :chunksize => 1024 })
-        @dir_path = File.expand_path(directory_path)
-        if (File.directory?(@dir_path))
-          raise SinkingException.new("Directory '#{directory_path}' already exists." unless opts[:force]
-        end
-        FileUtils.mkdir_p(@dir_path)
+      def initialize(directory_path, opts = {})
+        @opts = {:delete_if_existing => false, :chunksize => 1024 }.merge(opts)
+        @dir_path = File.expand_path(directory_path)        
       end
       
       # Generate to local directory
       def generate(root)
-        chunksize = opts[:chunksize]
+        FileUtils.mkdir_p(@dir_path)
+        clean_destination(root)
+        chunksize = @opts[:chunksize]
         RLayout.vfs_preorder(root, @dir_path) do |node, parent_path|
-          mypath = File.join(parent_path, @node.name)
+          mypath = File.join(parent_path, node.name)
           if node.instance_of?(VFSGroup)
-            FileUtils.mkdir(mypath)
+            FileUtils.mkdir_p(mypath)
           else
             File.open(mypath, "wb") do |ios|
               node.read_stream(chunksize) { |bytes| ios.write(bytes) }
@@ -32,6 +33,16 @@ module RLayout
           end
         end
       end
+      
+      private
+      
+      def clean_destination(root)
+        root_path = File.join(@dir_path, root.name)
+        if (@opts[:delete_if_existing] && File.exist?(root_path))
+          FileUtils.rm_rf(root_path)
+        end
+      end
+      
     end
   
     

@@ -10,11 +10,14 @@ require 'rlayout/vfs_group'
 require 'rlayout/sources'
 require 'rlayout/sinks'
 
-
+=begin
 include RLayout
 
 n = VFSGroup.new("hugo")
-n.add_child(Sources.local_file("rlayout.rb"))
+r = Sources.local_file("rlayout.rb")
+n.add_child(r)
+puts n.inspect
 
-ld = Sinks.LocalDirectory.new("c:/temp")
-ld.generate(n)
+ld = Sinks::LocalDirectory.new("c:/temp", :delete_if_existing => true)
+ld.generate(r)
+=end
