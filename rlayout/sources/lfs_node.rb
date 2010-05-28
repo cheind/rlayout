@@ -18,7 +18,8 @@ module RLayout
       # Read file in chunks.
       def read_stream(chunksize_hint, &block)
         File.open(@filepath, "rb") do |ios|
-          block.call(ios.read(chunksize_hint))
+          bytes = ios.read(chunksize_hint)
+          block.call(bytes) unless bytes.nil?
         end
       end
     end
