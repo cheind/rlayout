@@ -6,9 +6,10 @@
 module RLayout
   module Importers
   
-    def Importers.lfs_file(filename, destname = File.basename(filename))
-      raise ImportingException.new("File '#{filename}' not readable", nil) unless File.readable?(filename)
-      LFSNode.new(destname, filename)
+    # Import _filepath_ to the vfs.
+    def Importers.lfs_file(filepath, destname = File.basename(filename))
+      raise ImportingException.new("File '#{filepath}' not readable", nil) unless File.readable?(filepath)
+      LFSNode.new(destname, filepath)
     end
     
   end
