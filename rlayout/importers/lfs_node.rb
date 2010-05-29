@@ -4,7 +4,7 @@
 #
 
 module RLayout
-  module Sources
+  module Importers
   
     # Leaf node pointing to a local file.
     class LFSNode < VFSNode

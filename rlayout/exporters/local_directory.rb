@@ -6,7 +6,7 @@
 require 'fileutils'
 
 module RLayout
-  module Sinks
+  module Exporters
   
     # Generates output to a local directory
     class LocalDirectory

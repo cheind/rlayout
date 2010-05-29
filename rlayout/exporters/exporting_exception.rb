@@ -5,7 +5,7 @@
 
 module RLayout
 
-  class SinkingException < RuntimeError
+  class ExportingException < RuntimeError
     attr_reader :inner_exception
     
     def initialize(message, inner_exception = nil)

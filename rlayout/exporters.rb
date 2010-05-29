@@ -3,5 +3,5 @@
 # http://cheind.wordpress.com
 #
 
-require 'rlayout/sinks/sinking_exception.rb'
-require 'rlayout/sinks/local_directory.rb'
+require 'rlayout/exporters/exporting_exception.rb'
+require 'rlayout/exporters/local_directory.rb'

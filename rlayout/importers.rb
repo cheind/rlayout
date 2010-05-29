@@ -3,6 +3,6 @@
 # http://cheind.wordpress.com
 #
 
-require 'rlayout/sources/sourcing_exception'
-require 'rlayout/sources/lfs_node'
-require 'rlayout/sources/lfs_sources'
+require 'rlayout/importers/importing_exception'
+require 'rlayout/importers/lfs_node'
+require 'rlayout/importers/lfs_importers'

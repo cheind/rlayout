@@ -5,7 +5,7 @@
 
 module RLayout
 
-  class SourcingException < RuntimeError
+  class ImportingException < RuntimeError
     attr_reader :inner_exception
     
     def initialize(message, inner_exception)
