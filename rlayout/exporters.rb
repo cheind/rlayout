@@ -4,4 +4,4 @@
 #
 
 require 'rlayout/exporters/exporting_exception.rb'
-require 'rlayout/exporters/local_directory.rb'
+require 'rlayout/exporters/lfs_directory.rb'
