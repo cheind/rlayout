@@ -9,7 +9,7 @@ include RLayout
 
 class TestVFSGroup < Test::Unit::TestCase
   
-  def xtest_method_missing
+  def test_method_missing
     a = VFSGroup.new('a')
     a.b.c
     a.b.d.e
@@ -56,5 +56,16 @@ class TestVFSGroup < Test::Unit::TestCase
       str += n.name
       nil
     end
+  end
+  
+  def test_index_operator
+    a = MyGroup.new('a')
+    a[" says hello, "]["world!##?$##"]
+    str = ''
+    RLayout.vfs_preorder(a, 0) do |n|
+      str += n.name
+    end
+    
+    assert_equal("a says hello, world!##?$##", str)
   end
 end
