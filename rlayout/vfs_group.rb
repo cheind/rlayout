@@ -43,6 +43,7 @@ module RLayout
     protected
     
     # Fetch node or create node.
+    # If node is created the a new instance of the most derived class is created.
     def get_or_create_node(name, create_accessor)
       n = (self.nodes[name] ||= self.class.new(name))
       # Define method on the singleton class of ourself. I.e it affects only
