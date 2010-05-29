@@ -19,12 +19,12 @@ module RLayout
     
     # Method missing event triggers creation of sub-node
     def method_missing(method_name, *args)
-      fetch_node(method_name.to_s, true)
+      get_or_create_node(method_name.to_s, true)
     end 
     
     # Access or create nodes with otherwise invalid characters.
     def [](name)
-      fetch_node(name.to_s, false)
+      get_or_create_node(name.to_s, false)
     end
     
     # Add child node recursively.
@@ -43,10 +43,10 @@ module RLayout
     protected
     
     # Fetch node or create node.
-    def fetch_node(name, create_method)
-      n = @nodes[name] ||= VFSNode.new(name) 
+    def get_or_create_node(name, create_accessor)
+      n = (self.nodes[name] ||= self.class.new(name))
       # Define method on the singleton class of ourself. I.e it affects only
-      if create_method
+      if create_accessor
         sig = class << self; self; end
         sig.class_eval do
           define_method name do |*args|
