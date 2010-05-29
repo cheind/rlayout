@@ -10,12 +10,17 @@ module RLayout
   
   # Preorder traveral of tree starting at given node.
   # Traversal is performed iteratively.
-  def RLayout.vfs_preorder(root, init_tag, &block)
+  def RLayout.vfs_preorder(root, init_tag = nil, &block)
     stack = []
     stack.push(NodeTagPair.new(root, init_tag))
     while (!stack.empty?)     
       ntp = stack.pop
-      node_tag = block.call(ntp.node, ntp.parent_tag)
+      node_tag = nil
+      # Support for blocks that just accept a node and blocks that accept a node and its tag.
+      case block.arity
+        when 1 then block.call(ntp.node)
+        when 2 then node_tag = block.call(ntp.node, ntp.parent_tag)
+      end
       if ntp.node.kind_of?(VFSGroup)
         # Push subnodes in reverse order so that they arrive in-order
         subnodes = ntp.node.nodes.values

@@ -74,4 +74,27 @@ class TestVFSTravesal < Test::Unit::TestCase
     assert_equal('abcde', str)
     assert_equal(depths, {'a' => 0, 'b' => 1, 'c' => 2, 'd' => 1, 'e' => 2})   
   end
+  
+  def test_arity
+    a = MyGroup.new('a')
+    a.b.c
+    
+    # No interest in tag
+    str = ''
+    RLayout.vfs_preorder(a) do |n|
+      str += n.name
+    end
+    assert_equal('abc', str)
+    
+    # Interest in tag
+    str = ''
+    tags = {}
+    RLayout.vfs_preorder(a, 0) do |n, tag|
+      str += n.name
+      tags[n.name] = tag
+      tag + 1
+    end
+    assert_equal('abc', str)
+    assert_equal({'a' => 0, 'b' => 1, 'c' => 2}, tags)  
+  end
 end
