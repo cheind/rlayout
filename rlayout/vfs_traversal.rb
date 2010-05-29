@@ -1,16 +1,31 @@
-#
-# (c) Christoph Heindl, 2010
-# http://cheind.wordpress.com
-#
-
 module RLayout
 
   # Structure to hold a node and its parent tag
   NodeTagPair = Struct.new(:node, :parent_tag)
   
-  # Preorder traveral of tree starting at given node.
-  # Traversal is performed iteratively.
-  def RLayout.vfs_preorder(root, init_tag = nil, &block)
+  # Iterates in preorder starting at _root_. _block_ parameter is
+  # called for each node visted.
+  #
+  # Each node can be associated with a tag which is passed to _block_ in
+  # conjunction with the current node. If _block_ returns a tag it is associated
+  # with all children of the current node. The tag associated with _root_ is
+  # _init_tag_.
+  #
+  # === Example
+  #  a = VFSGroup.new('a')
+  #  a.b.c
+  #
+  #  str = ''
+  #  depth = {}
+  #  RLayout.vfs_preorder(a, 0) do |n, depth|
+  #    depth[n.name] = depth
+  #    depth + 1
+  #  end
+  #  
+  #  str #=> 'abc'
+  #  depth #=> {'a'=>0, 'b'=>1, 'c'=>2}
+  #
+  def RLayout.vfs_preorder(root, init_tag = nil, &block) # :yields: node, parent tag
     stack = []
     stack.push(NodeTagPair.new(root, init_tag))
     while (!stack.empty?)     

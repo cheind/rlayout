@@ -3,3 +3,7 @@ accepting utf
 put 
 # encoding: iso8859-1
 on top of script
+
+
+rdoc
+http://dev.rubyonrails.org/browser/trunk/activerecord/lib/active_record/associations.rb?rev=5073

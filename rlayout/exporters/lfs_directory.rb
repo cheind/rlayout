@@ -8,7 +8,7 @@ require 'fileutils'
 module RLayout
   module Exporters
   
-    # Generates output to a local directory
+    # Exports the content of the VFS to a local directory.
     class LocalDirectory
       
       # Initialize with directory path to generate to

@@ -9,7 +9,7 @@ module RLayout
     # Leaf node pointing to a local file.
     class LFSNode < VFSNode
       
-      # Initialize 
+      # Initialize with VFS name and local filepath.
       def initialize(name, filepath)
         super(name)
         @filepath = File.expand_path(filepath)
