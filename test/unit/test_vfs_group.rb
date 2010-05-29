@@ -62,10 +62,47 @@ class TestVFSGroup < Test::Unit::TestCase
     a = MyGroup.new('a')
     a[" says hello, "]["world!##?$##"]
     str = ''
-    RLayout.vfs_preorder(a, 0) do |n|
+    RLayout.vfs_preorder(a) do |n|
       str += n.name
     end
     
     assert_equal("a says hello, world!##?$##", str)
+  end
+  
+  def test_add_child
+    a = MyGroup.new('a')
+    a.b.c
+    
+    b = VFSGroup.new('b')
+    b.c.d
+    b.e
+    
+    f = VFSNode.new('f')
+    
+    assert_nothing_thrown do 
+      a.add_child(nil)
+    end
+    
+    a.add_child(b)
+    a.add_child(f)
+    
+    str = ''
+    types = {}
+    RLayout.vfs_preorder(a) do |n|
+      str += n.name
+      types[n.name] = n.class
+    end
+    
+    assert_equal('abcdef', str)
+    assert_equal(
+      {'a' => MyGroup, 
+       'b' => MyGroup, 
+       'c' => MyGroup, 
+       'd' => VFSGroup, 
+       'e' => VFSGroup, 
+       'f' => VFSNode
+      },
+      types
+    )
   end
 end

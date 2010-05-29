@@ -27,12 +27,15 @@ module RLayout
       get_or_create_node(name.to_s, false)
     end
     
-    # Add child node recursively.
+    # Add child node.
+    # Recursively adds the content of b. In case of a node-name clash, 
+    # the content of this node takes precedence of whatever is in b.
     def add_child(b)
+      return unless b
       a = @nodes[b.name]
       if !a
         @nodes[b.name] = b
-      elsif a.instance_of?(VFSGroup)
+      elsif a.kind_of?(VFSGroup)
         # Node is already present, merge children
         b.nodes.each_value do |n|
           a.add_child(n)
