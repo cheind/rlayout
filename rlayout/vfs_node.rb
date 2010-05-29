@@ -30,7 +30,9 @@ module RLayout
        "#{@name} : #{self.class}" 
     end
     
-    # Read content of node an pass to block
+    # Read the complete content of this node.
+    # The content is handed to the block argument in chunks,
+    # in chunksize_hint bytes per chunk if possible.
     def read_stream(chunksize_hint = 1024, &block)
       raise StreamingException.new("VFSNode cannot be streamed", nil)
     end
