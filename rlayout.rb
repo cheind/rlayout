@@ -10,14 +10,12 @@ require 'rlayout/vfs_group'
 require 'rlayout/importers'
 require 'rlayout/exporters'
 
-=begin
 include RLayout
 
 n = VFSGroup.new("hugo")
-r = Sources.local_file("rlayout.rb")
+r = Importers.lfs_file("rlayout.rb")
 n.add_child(r)
 puts n.inspect
 
-ld = Sinks::LocalDirectory.new("c:/temp", :delete_if_existing => true)
-ld.generate(r)
-=end
+Exporters.lfs_directory(n, "c:/temp", :delete_if_existing => true)
+

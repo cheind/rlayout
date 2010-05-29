@@ -42,11 +42,13 @@ module RLayout
           FileUtils.rm_rf(root_path)
         end
       end
-      
+    end
+    
+    def Exporters.lfs_directory(root, directory_path, opts = {})
+      ld = LocalDirectory.new(directory_path, opts)
+      ld.generate(root)
     end
   
-    
-    
   end
 end
 
