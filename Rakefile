@@ -7,12 +7,12 @@ require 'rake'
 require 'rake/testtask'
 require 'rake/rdoctask'
 
-task :default => [:test_units]
+task :default => [:test]
 
 desc "Run unit tests"
 Rake::TestTask.new("test") { |t|
   t.pattern = FileList['test/unit/test_*.rb']
-  t.verbose = true
+  t.verbose = false
   t.warning = false
 }
 
