@@ -24,7 +24,7 @@ module RLayout
         chunksize = @opts[:chunksize]
         RLayout.vfs_preorder(root, @dir_path) do |node, parent_path|
           mypath = File.join(parent_path, node.name)
-          if node.instance_of?(VFSGroup)
+          if node.kind_of?(VFSGroup)
             FileUtils.mkdir_p(mypath)
           else
             File.open(mypath, "wb") do |ios|
