@@ -17,7 +17,9 @@ module RLayout
       ntp = stack.pop
       node_tag = block.call(ntp.node, ntp.parent_tag)
       if ntp.node.instance_of?(VFSGroup)
-        ntp.node.nodes.each_value do |node|
+        # Push subnodes in reverse order so that they arrive in-order
+        subnodes = ntp.node.nodes.values
+        subnodes.reverse.each do |node|
           stack.push(NodeTagPair.new(node, node_tag))
         end
       end
