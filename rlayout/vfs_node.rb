@@ -34,7 +34,7 @@ module RLayout
     # The content is handed to the block argument in chunks,
     # in chunksize_hint bytes per chunk if possible.
     def read_stream(chunksize_hint = 1024, &block)
-      raise StreamingException.new("VFSNode cannot be streamed", nil)
+      raise StreamingError, "VFSNode cannot be streamed"
     end
     
   end

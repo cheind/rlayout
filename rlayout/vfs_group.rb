@@ -27,6 +27,14 @@ module RLayout
       get_or_create_node(name.to_s, false)
     end
     
+    # Add child nodes.
+    def <<(nodes)
+      case nodes
+        when Array then nodes.each {|n| add_child(n)}
+        when VFSNode then add_child(nodes)
+      end
+    end
+    
     # Add child node.
     # Recursively adds the content of b. In case of a node-name clash, 
     # the content of this node takes precedence of whatever is in b.
@@ -48,7 +56,7 @@ module RLayout
     # Fetch node or create node.
     # If node is created the a new instance of the most derived class is created.
     def get_or_create_node(name, create_accessor)
-      n = (self.nodes[name] ||= self.class.new(name))
+      n = (@nodes[name] ||= self.class.new(name))
       # Define method on the singleton class of ourself. I.e it affects only
       if create_accessor
         sig = class << self; self; end

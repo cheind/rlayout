@@ -11,7 +11,7 @@ task :default => [:test]
 
 desc "Run unit tests"
 Rake::TestTask.new("test") { |t|
-  t.pattern = FileList['test/unit/test_*.rb']
+  t.pattern = FileList['test/unit/**/test_*.rb']
   t.verbose = false
   t.warning = false
 }

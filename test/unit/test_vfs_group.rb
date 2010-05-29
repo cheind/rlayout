@@ -105,4 +105,36 @@ class TestVFSGroup < Test::Unit::TestCase
       types
     )
   end
+  
+  def test_child_nodes
+    a = MyGroup.new('a')
+    a.b.c
+    
+    b = VFSGroup.new('b')
+    b.c.d
+    b.e
+    
+    f = VFSNode.new('f')
+    
+    a << [b, f]
+    
+    str = ''
+    types = {}
+    RLayout.vfs_preorder(a) do |n|
+      str += n.name
+      types[n.name] = n.class
+    end
+    
+    assert_equal('abcdef', str)
+    assert_equal(
+      {'a' => MyGroup, 
+       'b' => MyGroup, 
+       'c' => MyGroup, 
+       'd' => VFSGroup, 
+       'e' => VFSGroup, 
+       'f' => VFSNode
+      },
+      types
+    )
+  end
 end
