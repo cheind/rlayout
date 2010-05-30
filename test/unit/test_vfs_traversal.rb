@@ -97,4 +97,44 @@ class TestVFSTravesal < Test::Unit::TestCase
     assert_equal('abc', str)
     assert_equal({'a' => 0, 'b' => 1, 'c' => 2}, tags)  
   end
+  
+  class MyIncompleteGroup < VFSGroup
+    def initialize(name)
+      super(name)
+      incomplete!
+    end
+    
+    def unroll
+      d = VFSGroup.new('d')
+      d.x.y.z
+      d
+    end
+  end
+  
+  def test_incomplete_traversal
+    a = MyGroup.new('a')
+    a.b << MyIncompleteGroup.new('c')
+    #a.b.c.d.w
+    
+    str = ''
+    types = {}
+    RLayout.vfs_preorder(a) do |n|
+      str += n.name
+      types[n.name] = n.class
+    end
+    
+    assert_equal('abcdxyz', str)
+    assert_equal(
+      {'a' => MyGroup, 
+       'b' => MyGroup, 
+       'c' => MyIncompleteGroup, 
+       'd' => VFSGroup, 
+       'x' => VFSGroup, 
+       'y' => VFSGroup, 
+       'z' => VFSGroup
+      },
+      types
+    )
+  end
+  
 end

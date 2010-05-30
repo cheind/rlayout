@@ -25,7 +25,8 @@ module RLayout
   #  str #=> 'abc'
   #  depth #=> {'a'=>0, 'b'=>1, 'c'=>2}
   #
-  def RLayout.vfs_preorder(root, init_tag = nil, &block) # :yields: node, parent tag
+  def RLayout.vfs_preorder(root, init_tag = nil, opts = {}, &block) # :yields: node, parent tag
+    myopts = {:unroll_incomplete => true}.merge(opts)
     stack = []
     stack.push(NodeTagPair.new(root, init_tag))
     while (!stack.empty?)     
@@ -37,8 +38,14 @@ module RLayout
         when 2 then node_tag = block.call(ntp.node, ntp.parent_tag)
       end
       if ntp.node.kind_of?(VFSGroup)
-        # Push subnodes in reverse order so that they arrive in-order
         subnodes = ntp.node.nodes.values
+        if ntp.node.incomplete? && myopts[:unroll_incomplete]
+          tmp_node = VFSGroup.new('temporary')
+          tmp_node.add_children(subnodes)
+          tmp_node.add_children(ntp.node.unroll)
+          subnodes = tmp_node.nodes.values
+        end
+        # Push subnodes in reverse order so that they arrive in-order
         subnodes.reverse.each do |node|
           stack.push(NodeTagPair.new(node, node_tag))
         end

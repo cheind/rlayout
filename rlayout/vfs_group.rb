@@ -15,6 +15,7 @@ module RLayout
     def initialize(name)
       super(name)
       @nodes = {}
+      @is_complete = true
     end
     
     # Method missing event triggers creation of sub-node
@@ -28,12 +29,13 @@ module RLayout
     end
     
     # Add child nodes.
-    def <<(nodes)
+    def add_children(nodes)
       case nodes
         when Array then nodes.each {|n| add_child(n)}
         when VFSNode then add_child(nodes)
       end
     end
+    alias :<< :add_children
     
     # Add child node.
     # Recursively adds the content of b. In case of a node-name clash, 
@@ -51,7 +53,37 @@ module RLayout
       end
     end
     
+    # True if node is complete, false otherwise
+    def complete?
+      @is_complete
+    end
+    
+    # True if node is incomplete, false otherwise
+    def incomplete?
+      !complete?
+    end
+    
+    # Dynamically expand rolled-up child nodes
+    #
+    # A VFSGroup can either be complete or incomplete. A term that refers
+    # to the state of its child nodes. If complete, all child nodes are present, 
+    # some child nodes are dynamically created while traversing the virtual file system.
+    #
+    # Use unroll to return an Array of dynamically generated child nodes. Explicit existing
+    # child nodes take precedence over dynamically unrolled nodes. It is possible
+    # to merge dynamically generated nodes with the explicit children (use add_children). In
+    # that case you should change the nodes state to complete.
+    #
+    def unroll
+      nil
+    end
+    
     protected
+    
+    # Mark node as incomplete
+    def incomplete!
+      @is_complete = false
+    end
     
     # Fetch node or create node.
     # If node is created the a new instance of the most derived class is created.
