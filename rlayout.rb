@@ -1,8 +1,3 @@
-#
-# (c) Christoph Heindl, 2010
-# http://cheind.wordpress.com
-#
-
 require 'rlayout/exceptions'
 require 'rlayout/vfs_traversal'
 require 'rlayout/vfs_node'

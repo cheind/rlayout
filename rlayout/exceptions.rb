@@ -1,7 +1,3 @@
-#
-# (c) Christoph Heindl, 2010
-# http://cheind.wordpress.com
-#
 
 module RLayout
   # Base RLayout error type
