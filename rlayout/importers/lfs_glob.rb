@@ -13,7 +13,8 @@ module RLayout
     # all directory chains found after the first recursive globbing
     # expression (**).
     def Importers.lfs_glob(pattern, opts = {})
-      gh = LFSGlobbingHelper.new(pattern, opts)
+      myopts = { :node_naming => Proc.new {|path| File.basename(path)} }.merge(opts)
+      gh = LFSGlobbingHelper.new(pattern, myopts)
       gh.glob
     end
     
@@ -44,7 +45,7 @@ module RLayout
       # and create a chain of virtual sub groups and a single
       # LFSFileNode for it.
       def split_path(fp, i)
-        n = LFSFileNode.new(File.basename(fp), fp)
+        n = LFSFileNode.new(RLayout.derive_name(@opts[:node_name], fp), fp)
         fp_rest = fp[i..-1]
         splitted = fp_rest.split("/")
         if splitted.length > 1
