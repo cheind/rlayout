@@ -9,7 +9,7 @@ module RLayout
   module Exporters
   
     # Exports the content of the VFS to a local directory.
-    class LocalDirectory
+    class LFSDirectory
       
       # Initialize with directory path to generate to
       def initialize(directory_path, opts = {})
@@ -45,7 +45,7 @@ module RLayout
     end
     
     def Exporters.lfs_directory(root, directory_path, opts = {})
-      ld = LocalDirectory.new(directory_path, opts)
+      ld = LFSDirectory.new(directory_path, opts)
       ld.generate(root)
     end
   

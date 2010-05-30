@@ -13,12 +13,12 @@ module RLayout
     # all directory chains found after the first recursive globbing
     # expression (**).
     def Importers.lfs_glob(pattern, opts = {})
-      gh = GlobbingHelper.new(pattern, opts)
+      gh = LFSGlobbingHelper.new(pattern, opts)
       gh.glob
     end
     
     # Supports enumerating files matching a globbing pattern.
-    class GlobbingHelper
+    class LFSGlobbingHelper
       def initialize(pattern, opts)
         @opts = {:flatten_recursive => false}.merge(opts)
         @pattern = File.expand_path(pattern)
