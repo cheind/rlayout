@@ -9,44 +9,50 @@ module RLayout
   module Exporters
   
     # Exports the content of the VFS to a local directory.
-    class LFSDirectory
+    class LFSDirectory < Exporter
       
       # Initialize with directory path to generate to
       def initialize(directory_path, opts = {})
         @opts = {:delete_if_existing => false, :chunksize => 1024 }.merge(opts)
         @dir_path = File.expand_path(directory_path)        
+        @chunksize = @opts[:chunksize]
       end
       
-      # Generate to local directory
-      def generate(root)
+      def prologue(root)
         FileUtils.mkdir_p(@dir_path)
-        clean_destination(root)
-        chunksize = @opts[:chunksize]
-        RLayout.vfs_preorder(root, @dir_path) do |node, parent_path|
-          mypath = File.join(parent_path, node.name)
-          if node.kind_of?(VFSGroup)
-            FileUtils.mkdir_p(mypath)
-          else
-            File.open(mypath, "wb") do |ios|
-              node.read_stream(chunksize) { |bytes| ios.write(bytes) }
-            end
-          end
-        end
+        @clean_up_path = File.join(@dir_path, root.name)
+        cleanup if @opts[:delete_if_existing]
+        @dir_path
       end
       
-      private
+      def process(node, parent_path)
+        mypath = File.join(parent_path, node.name)
+        self.process_node(mypath, node)
+      end
       
-      def clean_destination(root)
-        root_path = File.join(@dir_path, root.name)
-        if (@opts[:delete_if_existing] && File.exist?(root_path))
-          FileUtils.rm_rf(root_path)
+      def epilogue
+      end
+      
+      def cleanup
+         FileUtils.rm_rf(@clean_up_path) if File.exist?(@clean_up_path)
+      end
+     
+      protected
+      
+      # Process a single node
+      def process_node(path, node)
+        if node.kind_of?(VFSGroup)
+          FileUtils.mkdir_p(path)
+        else
+          File.open(path, "wb") do |ios|
+            node.read_stream(@chunksize) { |bytes| ios.write(bytes) }
+          end
         end
       end
     end
     
-    def Exporters.lfs_directory(root, directory_path, opts = {})
-      ld = LFSDirectory.new(directory_path, opts)
-      ld.generate(root)
+    def Exporters.lfs_directory(directory_path, opts = {})
+      LFSDirectory.new(directory_path, opts)
     end
   
   end

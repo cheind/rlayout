@@ -102,4 +102,9 @@ module RLayout
     end
   end
   
+  # Instance a new virtual file system group
+  def RLayout.vfs_group(name)
+    VFSGroup.new(name)
+  end
+  
 end

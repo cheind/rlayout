@@ -3,4 +3,5 @@
 # http://cheind.wordpress.com
 #
 
-require 'rlayout/exporters/lfs_directory.rb'
+require 'rlayout/exporters/exporter'
+require 'rlayout/exporters/lfs_directory'
