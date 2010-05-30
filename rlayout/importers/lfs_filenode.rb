@@ -7,7 +7,7 @@ module RLayout
   module Importers
   
     # Leaf node pointing to a local file.
-    class LFSFileNode < VFSNode
+    class LFSFileNode < VFSStreamableNode
       attr_reader :filepath
       
       # Initialize with VFS name and local filepath.

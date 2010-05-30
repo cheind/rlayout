@@ -21,6 +21,7 @@ module RLayout
     
     def initialize(opts = {})
       @opts = {
+        :chunksize => 1024,
         :log => Logger.new(STDOUT), 
         :log_level => Logger::INFO,
         :print_stats => true,
@@ -28,6 +29,7 @@ module RLayout
         :reraise_errors => true
       }.merge(opts)
       
+      @chunksize = @opts[:chunksize]
       @logger = @opts[:log]
       @logger.level = @opts[:log_level]
       @logger.progname = 'RLayout'
@@ -37,75 +39,96 @@ module RLayout
     
     # Export starting from node
     def run(root)
+      exit_code = 0
       @logger.info('Starting.')
       begin
         init_tags = self.prologue(root)
-        RLayout.vfs_preorder(root, init_tags) do |node, tags|
-          self.process(node, tags)
-        end
+        RLayout.vfs_preorder(
+          root, 
+          init_tags,
+          :unroll_incomplete => true, 
+          &self.method(:process)
+        )
         self.epilogue
+        @logger.info('Finished.')
       rescue StandardError => err
-        @logger.fatal("#{@failed_exporter ? @failed_exporter.class : RLayout.class} : #{err.message}")
+        @logger.fatal(err.message)
         if @opts[:cleanup_on_error]
           @logger.info('Cleaning up.')
           self.cleanup
         end
-        @logger.info('Aborting.')
-        raise err if @opts[:reraise_errors]
-        -1
-      else
-        @logger.info('Finished.')
-        0
+        @logger.info('Failed.')
+        exit_code = -1
+        raise err if @opts[:reraise_errors]        
       end
+      exit_code
     end
     
     protected
     
     def prologue(root)
-      # Invoke exporters prologue
       init_tags = []
-      @exporters.each do |e|
-        begin
-          init_tags << e.prologue(root)
-        rescue StandardError => err
-          @failed_exporter = e
-          raise err
-        end
+      self.send_each(@exporters, :prologue, root) do |ret|
+        init_tags << ret
       end
       init_tags
     end
     
+    # Process a _node_ and associated tags per exporter.
     def process(node, tags)
+      if node.kind_of?(VFSGroup)
+        process_group(node, tags)
+      elsif node.kind_of?(VFSStreamableNode)
+        process_leaf(node, tags)
+      else
+        process_other(node)
+      end
+    end
+    
+    # Process a group _node_ with associated tags per exporter.
+    # Returns a collection of tags for each exporter.
+    def process_group(node, tags)
       next_tags = []
       @exporters.each_with_index do |e, i|
-        begin
-          next_tags << e.process(node, tags[i])
-        rescue StandardError => err
-          @failed_exporter = e
-          raise err
-        end
+        next_tags << e.group(node, tags[i])
       end
       next_tags
     end
     
-    def epilogue
-      @exporters.each do |e|
-        begin
-          e.epilogue
-        rescue StandardError => err
-          @failed_exporter = e
-          raise err
+    def process_leaf(node, tags)
+      handlers = []
+      @exporters.each_with_index do |e, i|
+        h = e.leaf(node, tags[i])
+        handlers << h if h
+      end
+      self.send_each(handlers, :open, node)
+      begin
+        node.read_stream(@chunksize) do |bytes|
+          self.send_each(handlers, :write, bytes)
         end
+      ensure
+        self.send_each(handlers, :close, node)
       end
     end
     
+    def process_other(node, tags)
+      @exporters.each_with_index do |e, i|
+        e.other(node, tags[i])
+      end
+    end
+    
+    def epilogue
+      self.send_each(@exporters, :epilogue)
+    end
+    
     def cleanup
-      @exporters.each do |e|
-        begin
-          e.cleanup
-        rescue StandardError => err
-          @logger.fatal("#{e.class} : #{err.message}")
-        end
+      self.send_each(@exporters, :cleanup)
+    end
+    
+    def send_each(collection, method_name, *args)
+      collection.each do |e|
+        result = e.send(method_name, *args)
+        yield result if block_given?
       end
     end
     

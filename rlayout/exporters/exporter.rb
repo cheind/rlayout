@@ -13,24 +13,47 @@ module RLayout
       # Called before exporting starts
       # Returned value is taken as initial tag for the root node.
       def prologue(node)
-        raise RuntimeError, "Not implemented"
       end
       
       # Called after exporting finished
       def epilogue
-        raise RuntimeError, "Not implemented"
       end
       
-      # Process _node_ and its _tag_.
-      # Value returned from this method is taken as input tag for
-      # child nodes of this _node_
-      def process(node, tag)
-        raise RuntimeError, "Not implemented"
+      # Process a group _node_ along with its associated _tag_.
+      # Returning a value will assign that value to the children of _node_.
+      def group(node, tag)
+      end
+      
+      # Process a VFSStreamableNode leaf _node_.
+      # Return a StreamHandler if exporter is interested in dealing with
+      # the _node_'s content stream.
+      def leaf(node, tag)
+      end
+      
+      # Process any other node that directly inherits from VFSNode
+      # and whose class does not match VFSGroup or VFSStreamableNode.
+      def other(node, tag)
       end
       
       # Called when cleanup of necessary generated output is required.
       def cleanup
         raise RuntimeError, "Not implemented"
+      end
+    end
+    
+    # Base class for handling streamable nodes at exporters
+    class StreamHandler
+      # Open output for node
+      def open(node)
+      end
+      
+      # Write bytes to output
+      def write(bytes)
+      end
+      
+      # Close output for node
+      # Always called even if error occurred.
+      def close(node)
       end
     end
   end
