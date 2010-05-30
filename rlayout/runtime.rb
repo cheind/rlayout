@@ -24,7 +24,8 @@ module RLayout
         :log => Logger.new(STDOUT), 
         :log_level => Logger::INFO,
         :print_stats => true,
-        :cleanup_on_error => true
+        :cleanup_on_error => true,
+        :reraise_errors => true
       }.merge(opts)
       
       @logger = @opts[:log]
@@ -50,6 +51,7 @@ module RLayout
           self.cleanup
         end
         @logger.info('Aborting.')
+        raise err if @opts[:reraise_errors]
         -1
       else
         @logger.info('Finished.')

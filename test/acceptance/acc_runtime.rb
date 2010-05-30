@@ -14,7 +14,7 @@ class TestAcceptanceRuntime < Test::Unit::TestCase
     r.a << Importers.lfs_glob('rlayout/**/e*.rb')
     
     runtime = Runtime.new
-    runtime.exporters << Exporters.lfs_directory('c:/temp/')
+    runtime.exporters << Exporters.lfs_directory('c:/temp/', :dry_run => true)
     runtime.run(r)
   end
 end
