@@ -37,7 +37,7 @@ desc "Generate rdoc documentation"
 Rake::RDocTask.new do |rd|
   rd.title = "RLayout Documentation"
   rd.main = 'README'
-  rd.options += [ '-f', 'darkfish']
+  rd.options += [ '-f', 'darkfish', '-c', 'utf-8']
   rd.rdoc_dir = "doc_tmp"
   rd.rdoc_files.include('README', 'License', 'rlayout.rb', 'rlayout/**/*.rb')
 end

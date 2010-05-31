@@ -15,8 +15,25 @@ RLayout offers the following features
 - Simple extension API to provide custom importers and exporters.
 
 == Introductionary Example
-TODO
+Here is an example that shows importers and exporters work together
 
+ # Here's an example of packaging up a software release 
+ # for some exotic product using RLayout
+    
+ package = RLayout.vfs_group("Exotic-#{Time.now.strftime("%Y-%m-%d")}")
+ package.inc       << RLayout.lfs_glob('path/to/includes/**/*.[h,hpp]') 
+ package.src       << RLayout.lfs_glob('path/to/src/*')
+ package.doc       << RLayout.http_file('https://api.docs.org/latest.pdf')
+ package.testdata  << RLayout.ftp_file('ftp://build.server.org/testdata.zip')
+ package           << RLayout.mem_text('readme.txt', 'Exotic - Readme ... ')
+    
+ # No data has been read until this point.
+    
+ runtime = Runtime.new
+ runtime.exporters << Exporters.lfs_directory('c:/temp/')
+ runtime.exporters << Exporters.lfs_zipfile('c:/temp/myzip.zip')
+ runtime.run(r, :dry_run => true)
+ 
 == Design Overview
 RLayout uses importers to accumulate content from various sources. These RLayout.Importers provide information nodes (VFSNode) for RLayouts virtual file system (VFSGroup). These nodes contain information on the content and methods to read the content in chunks. Once the importing step is completed, RLayout uses exporters (RLayout.Exporters) to package the content of the virtual file system physically.
 
