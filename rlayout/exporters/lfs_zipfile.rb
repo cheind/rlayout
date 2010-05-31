@@ -6,7 +6,6 @@ module RLayout
   
     # Exports the content of a virtual file system to a local zip file.
     # 
-    # === Requirements
     # Requires +rubyzip+.
     #  gem install rubyzip
     #
