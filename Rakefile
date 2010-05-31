@@ -39,5 +39,5 @@ Rake::RDocTask.new do |rd|
   rd.main = 'README'
   rd.options += [ '-f', 'darkfish']
   rd.rdoc_dir = "doc_tmp"
-  rd.rdoc_files.include('README', 'License', 'rlayout/**/*.rb')
+  rd.rdoc_files.include('README', 'License', 'rlayout.rb', 'rlayout/**/*.rb')
 end

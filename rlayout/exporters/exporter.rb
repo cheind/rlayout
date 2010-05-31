@@ -4,7 +4,7 @@ require 'fileutils'
 module RLayout
   module Exporters
   
-    # Base class for exporters cooperating with RLayout.Runtime
+    # Base class for exporters cooperating with RLayout.Runtime to generate output.
     class Exporter
       
       # Exporting of virtual file system is about to start.
