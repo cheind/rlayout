@@ -15,8 +15,8 @@ class TestAcceptanceRuntime < Test::Unit::TestCase
     r.a << Importers.lfs_glob('rlayout/**/e*.rb')
     
     runtime = Runtime.new
-    runtime.exporters << Exporters.lfs_directory('c:/temp/', :dry_run => false)
-    runtime.run(r)
+    runtime.exporters << Exporters.lfs_directory('c:/temp/')
+    runtime.run(r, :dry_run => true)
   end
   
   def test_zip
@@ -24,7 +24,21 @@ class TestAcceptanceRuntime < Test::Unit::TestCase
     r.a << Importers.lfs_glob('rlayout/**/e*.rb')
     
     runtime = Runtime.new
-    runtime.exporters << Exporters.lfs_zipfile('c:/temp/myzip.zip', :dry_run => false)
-    runtime.run(r)
+    runtime.exporters << Exporters.lfs_zipfile('c:/temp/myzip.zip')
+    runtime.run(r, :dry_run => true)
+  end
+  
+  def test_text
+    r = Importers.mem_text('readme.txt', <<eos)
+Here goes your text. 
+Maybe some more text.
+eos
+    
+    runtime = Runtime.new
+    runtime.exporters << Exporters.lfs_directory('c:/temp/')
+    runtime.run(r, :dry_run => false)
+    
+    
+    
   end
 end

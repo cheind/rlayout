@@ -1,13 +1,23 @@
 
 module RLayout
   
-  # A grouping node in the virtual file system.
+  # A grouping node for child nodes.
+  #
+  # A group node is either complete or incomplete. Complete group nodes
+  # contain all child nodes explicitely. Incomplete group nodes contain
+  # possibly 'rolled-up' child nodes that will be unrolled when generating
+  # the output.
+  #
+  # Since Runtime implements a single read/multiple write architecture that
+  # aims at reducing the number of required reads, you should use dynamically
+  # generated child nodes when access to the layout cannot be defined without
+  # possibly long lasting reads.
   # 
   class VFSGroup < VFSNode
-    # Sub-nodes as a hash of node name to node
+    # Sub-nodes as a hash of VFSNode#name to VFSNode
     attr_reader :nodes
     
-    # Initialize 
+    # Initialize with name
     def initialize(name)
       super(name)
       @nodes = {}

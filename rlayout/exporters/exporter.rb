@@ -6,23 +6,27 @@ module RLayout
   
     # Base class for exporters cooperating with RLayout.Runtime
     class Exporter
-      # Called before exporting starts
-      # Returned value is taken as initial tag for the root node.
-      def prologue(node)
+      
+      # Exporting of virtual file system is about to start.
+      # Value returned is taken as initial tag for the +root+ node.
+      #
+      # === Supported Options
+      #  * <tt>:dry_run</tt> - Run without writing data but with verbose output.
+      def prologue(node, opts)
       end
       
-      # Called after exporting finished
+      # Exporting of virtual file system finished.
       def epilogue
       end
       
-      # Process a group _node_ along with its associated _tag_.
-      # Returning a value will assign that value to the children of _node_.
+      # Process a group +node+ along with its associated +tag+.
+      # Value returned is considered the tag for the children of +node+.
       def group(node, tag)
       end
       
-      # Process a VFSStreamableNode leaf _node_.
+      # Process a streamable leaf.
       # Return a StreamHandler if exporter is interested in dealing with
-      # the _node_'s content stream.
+      # the content of the +node+. +tag+ is the associated tag with +node+.
       def leaf(node, tag)
       end
       
@@ -31,9 +35,8 @@ module RLayout
       def other(node, tag)
       end
       
-      # Called when cleanup of necessary generated output is required.
+      # Remove any generated output.
       def cleanup
-        raise RuntimeError, "Not implemented"
       end
     end
     

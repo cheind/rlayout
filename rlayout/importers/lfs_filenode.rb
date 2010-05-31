@@ -4,9 +4,10 @@ module RLayout
   
     # Leaf node pointing to a local file.
     class LFSFileNode < VFSStreamableNode
+      # Filepath
       attr_reader :filepath
       
-      # Initialize with VFS name and local filepath.
+      # Initialize with +name+ and +filepath+.
       def initialize(name, filepath)
         super(name)
         @filepath = File.expand_path(filepath)
@@ -14,13 +15,9 @@ module RLayout
       
       # Read file in chunks.
       def read_stream(chunksize_hint, &block)
-        begin
-          File.open(@filepath, "rb") do |ios|
-            bytes = ios.read(chunksize_hint)
-            block.call(bytes) unless bytes.nil?
-          end
-        rescue SystemCallError => e
-          raise StreamingError, e.message
+        File.open(@filepath, "rb") do |ios|
+          bytes = ios.read(chunksize_hint)
+          block.call(bytes) unless bytes.nil?
         end
       end
     end

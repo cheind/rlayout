@@ -7,3 +7,4 @@ on top of script
 
 rdoc
 http://dev.rubyonrails.org/browser/trunk/activerecord/lib/active_record/associations.rb?rev=5073
+http://wiki.github.com/lifo/docrails/rails-api-documentation-conventions

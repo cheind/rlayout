@@ -1,4 +1,6 @@
 
+require 'rlayout/importers/mem_textnode'
+require 'rlayout/importers/mem_text'
 require 'rlayout/importers/lfs_filenode'
 require 'rlayout/importers/lfs_file'
 require 'rlayout/importers/lfs_glob'

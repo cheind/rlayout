@@ -32,7 +32,11 @@ Rake::TestTask.new("benchmark") { |t|
 
 desc "Generate rdoc documentation"
 Rake::RDocTask.new do |rd|
+  rd.title = "RLayout Documentation"
   rd.main = 'README'
+  rd.options << '--line-numbers' << '--inline-source'
+  rd.options << '-A cattr_accessor=object'
+  rd.options << '--charset' << 'utf-8'
   rd.rdoc_dir = "doc_tmp"
   rd.rdoc_files.include('README', 'License', 'rlayout/**/*.rb')
 end

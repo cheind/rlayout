@@ -6,33 +6,26 @@ module RLayout
     # Name of node
     attr_reader :name
     
-    # Initialize 
+    # Initialize with +name+.
     def initialize(name)
       @name = name
     end
     
-    # Human readable inspection
+    # Human readable inspection of node.
+    # Prints entire subtree if this node has children.
     def inspect
-      str = ""
+      str = ''
       RLayout.vfs_preorder(self, 0) do |node, node_indent|
-        str += ' '*node_indent + node.to_s + "\n"
+        str += ' '*node_indent + node.to_s + $/
         node_indent + 2
       end
-      str
+      str.chomp
     end
     
-    # Convert to string
+    # Convert node to string
     def to_s
        "#{@name} : #{self.class}" 
     end
-    
-    # Read the complete content of this node.
-    # The content is handed to the block argument in chunks,
-    # in chunksize_hint bytes per chunk if possible.
-    def read_stream(chunksize_hint = 1024, &block)
-      raise StreamingError, "VFSNode cannot be streamed"
-    end
-    
   end
   
 end

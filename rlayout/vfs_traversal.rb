@@ -4,13 +4,13 @@ module RLayout
   # Structure to hold a node and its parent tag
   NodeTagPair = Struct.new(:node, :parent_tag)
   
-  # Iterates in preorder starting at _root_. _block_ parameter is
-  # called for each node visted.
+  # Iterates in preorder starting at +root+. The +block+
+  # parameter is called for each node visted.
   #
-  # Each node can be associated with a tag which is passed to _block_ in
-  # conjunction with the current node. If _block_ returns a tag it is associated
-  # with all children of the current node. The tag associated with _root_ is
-  # _init_tag_.
+  # Each node can be associated with a tag which is passed to +block+ in
+  # conjunction with the current node. If +block+ returns a tag it is associated
+  # with all children of the current node. The tag associated with +root+ is
+  # <tt>init_tag</tt>.
   #
   # === Example
   #  a = VFSGroup.new('a')
