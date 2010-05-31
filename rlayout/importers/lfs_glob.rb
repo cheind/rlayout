@@ -10,7 +10,7 @@ module RLayout
     # expression (**).
     #
     # === Supported Options
-    # See options of LFSGlobbingHelper#new
+    # See options of LFSGlobbingHelper::new
     # 
     # === Example
     #  Importers.lfs_glob('rlayout/**/e*.rb')
