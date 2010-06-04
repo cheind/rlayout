@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+
+	<title>File: README [RLayout Documentation]</title>
+
+	<link type="text/css" media="screen" href="./rdoc.css" rel="stylesheet" />
+
+	<script src="./js/jquery.js" type="text/javascript"
+		charset="utf-8"></script>
+	<script src="./js/thickbox-compressed.js" type="text/javascript"
+		charset="utf-8"></script>
+	<script src="./js/quicksearch.js" type="text/javascript"
+		charset="utf-8"></script>
+	<script src="./js/darkfish.js" type="text/javascript"
+		charset="utf-8"></script>
+</head>
+
+<body class="file">
+	<div id="metadata">
+		<div id="home-metadata">
+			<div id="home-section" class="section">
+        <h3 class="section-header">
+          <a href="./index.html">Home</a>
+          <a href="./index.html#classes">Classes</a>
+          <a href="./index.html#methods">Methods</a>
+        </h3>
+			</div>
+		</div>
+
+		<div id="project-metadata">
+			
+			
+			<div id="fileindex-section" class="section project-section">
+				<h3 class="section-header">Files</h3>
+				<ul>
+				
+					<li class="file"><a href="./License.html">License</a></li>
+				
+					<li class="file"><a href="./README.html">README</a></li>
+				
+				</ul>
+			</div>
+			
+
+			<div id="classindex-section" class="section project-section">
+				<h3 class="section-header">Class Index
+					<span class="search-toggle"><img src="./images/find.png"
+						height="16" width="16" alt="[+]"
+						title="show/hide quicksearch" /></span></h3>
+				<form action="#" method="get" accept-charset="utf-8" class="initially-hidden">
+				<fieldset>
+					<legend>Quicksearch</legend>
+					<input type="text" name="quicksearch" value=""
+						class="quicksearch-field" />
+				</fieldset>
+				</form>
+
+				<ul class="link-list">
+				
+					<li><a href="./RLayout.html">RLayout</a></li>
+				
+					<li><a href="./RLayout/Error.html">RLayout::Error</a></li>
+				
+					<li><a href="./RLayout/Exporters.html">RLayout::Exporters</a></li>
+				
+					<li><a href="./RLayout/Exporters/Exporter.html">RLayout::Exporters::Exporter</a></li>
+				
+					<li><a href="./RLayout/Exporters/LFSDirectory.html">RLayout::Exporters::LFSDirectory</a></li>
+				
+					<li><a href="./RLayout/Exporters/LFSDirectory/MyStreamHandler.html">RLayout::Exporters::LFSDirectory::MyStreamHandler</a></li>
+				
+					<li><a href="./RLayout/Exporters/LFSZipFile.html">RLayout::Exporters::LFSZipFile</a></li>
+				
+					<li><a href="./RLayout/Exporters/LFSZipFile/MyStreamHandler.html">RLayout::Exporters::LFSZipFile::MyStreamHandler</a></li>
+				
+					<li><a href="./RLayout/Exporters/StreamHandler.html">RLayout::Exporters::StreamHandler</a></li>
+				
+					<li><a href="./RLayout/Importers.html">RLayout::Importers</a></li>
+				
+					<li><a href="./RLayout/Importers/HttpFileNode.html">RLayout::Importers::HttpFileNode</a></li>
+				
+					<li><a href="./RLayout/Importers/LFSFileNode.html">RLayout::Importers::LFSFileNode</a></li>
+				
+					<li><a href="./RLayout/Importers/LFSGlobbingHelper.html">RLayout::Importers::LFSGlobbingHelper</a></li>
+				
+					<li><a href="./RLayout/Importers/MemTextNode.html">RLayout::Importers::MemTextNode</a></li>
+				
+					<li><a href="./RLayout/Runtime.html">RLayout::Runtime</a></li>
+				
+					<li><a href="./RLayout/Runtime/ErrorFormatter.html">RLayout::Runtime::ErrorFormatter</a></li>
+				
+					<li><a href="./RLayout/VFSGroup.html">RLayout::VFSGroup</a></li>
+				
+					<li><a href="./RLayout/VFSNode.html">RLayout::VFSNode</a></li>
+				
+					<li><a href="./RLayout/VFSStreamableNode.html">RLayout::VFSStreamableNode</a></li>
+				
+				</ul>
+				<div id="no-class-search-results" style="display: none;">No matching classes.</div>
+			</div>
+
+			
+		</div>
+	</div>
+
+	<div id="documentation">
+		<h1><a href="RLayout.html">RLayout</a></h1>
+<p>
+This package contains <a href="RLayout.html">RLayout</a>, a flexible
+packaging system for files. 
+</p>
+<p>
+<a href="RLayout.html">RLayout</a> is motivated by the fact that packaging
+software for distribution can be a tedious tasks. Often files from various
+sources need to be copied and filtered, including but not limited to
+documentation, binaries and source code. Additional external information
+needs to be downloaded such as the latest test results or the latest
+wording of the license agreement. Hours later, after zipping everything up,
+your software is ready to be released.
+</p>
+<p>
+<a href="RLayout.html">RLayout</a> originates in the idea relieve the
+developer of performing these tasks manually. <a
+href="RLayout.html">RLayout</a> is, of course, not limited to process of
+the packaging of software releases. 
+</p>
+<p>
+<a href="RLayout.html">RLayout</a> offers the following features
+</p>
+<ul>
+<li><p>
+Import from your local file system using flexible globbing expressions.
+</p>
+</li>
+<li><p>
+Import from ftp sources.
+</p>
+</li>
+<li><p>
+Import from http sources.
+</p>
+</li>
+<li><p>
+Export packages to the local file system.
+</p>
+</li>
+<li><p>
+Export packages as compressed zip files.
+</p>
+</li>
+<li><p>
+Simple extension API to provide custom importers and exporters.
+</p>
+</li>
+</ul>
+<h2>Introductionary Example</h2>
+<p>
+Here is an example that shows importers and exporters work together
+</p>
+<pre>
+ # Here's an example of packaging up a software release 
+ # for some exotic product using RLayout
+    
+ package = RLayout.vfs_group(&quot;Exotic-#{Time.now.strftime(&quot;%Y-%m-%d&quot;)}&quot;)
+ package.inc       &lt;&lt; RLayout.lfs_glob('path/to/includes/**/*.[h,hpp]') 
+ package.src       &lt;&lt; RLayout.lfs_glob('path/to/src/*')
+ package.doc       &lt;&lt; RLayout.http_file('https://api.docs.org/latest.pdf')
+ package.testdata  &lt;&lt; RLayout.ftp_file('ftp://build.server.org/testdata.zip')
+ package           &lt;&lt; RLayout.mem_text('readme.txt', 'Exotic - Readme ... ')
+    
+ # No data has been read until this point.
+    
+ runtime = Runtime.new
+ runtime.exporters &lt;&lt; Exporters.lfs_directory('c:/temp/')
+ runtime.exporters &lt;&lt; Exporters.lfs_zipfile('c:/temp/myzip.zip')
+ runtime.run(r, :dry_run =&gt; true)
+ 
+</pre>
+<h2>Design Overview</h2>
+<p>
+<a href="RLayout.html">RLayout</a> uses importers to accumulate content
+from various sources. These <a href="RLayout.html">RLayout</a>.Importers
+provide information nodes (VFSNode) for RLayouts virtual file system
+(VFSGroup). These nodes contain information on the content and methods to
+read the content in chunks. Once the importing step is completed, <a
+href="RLayout.html">RLayout</a> uses exporters (<a
+href="RLayout.html">RLayout</a>.Exporters) to package the content of the
+virtual file system physically.
+</p>
+<h2>Requirements</h2>
+<p>
+Non except Ruby. This distribution was tested on Ruby 1.8.6 and Ruby 1.9.1.
+</p>
+<h2><a href="License.html">License</a></h2>
+<p>
+<a href="RLayout.html">RLayout</a> is Copyright &#169; 2010 Christoph
+Heindl. It is free software, and may be redistributed under the terms 
+specified in the <a href="License.html">License</a> file.
+</p>
+<h2>Support</h2>
+<p>
+The <a href="RLayout.html">RLayout</a> homepage is <a
+href="http://code.google.com/p/rlayout/.">code.google.com/p/rlayout/.</a>
+There you will find links to report  <a
+href="http://code.google.com/p/rlayout/issues/list">issues</a> and the
+latest source code. You might find additional help on the author&#8217;s
+homepage <a href="http://cheind.wordpress.com.">cheind.wordpress.com.</a>
+For general questions contact the  author via email at <a
+href="mailto:christoph.heindl@gmail.com">christoph.heindl@gmail.com</a>
+</p>
+
+	</div>
+
+	<div id="validator-badges">
+		<p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+		<p><small>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish
+			Rdoc Generator</a> 1.1.6</small>.</p>
+	</div>
+</body>
+</html>
+
