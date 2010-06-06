@@ -2,7 +2,7 @@
 module RLayout
   module Importers
   
-    # Import the output of command executed on the local OS.
+    # Import the ouptut of a command executed on the local OS.
     #
     # === Supported Options
     # * <tt>:args</tt> - Array of arguments passed with command. Commands are quote-escaped before passed to the OS.
