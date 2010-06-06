@@ -18,8 +18,9 @@ module RLayout
       # Read text in chunks.
       def read_stream(chunksize_hint, &block)
         StringIO.open(@text, "rb") do |ios|
-          bytes = ios.read(chunksize_hint)
-          block.call(bytes) unless bytes.nil?
+          while bytes = ios.read(chunksize_hint)
+            block.call(bytes)
+          end
         end
       end
       

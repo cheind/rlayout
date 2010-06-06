@@ -10,7 +10,7 @@ include RLayout
 
 class TestAcceptanceRuntime < Test::Unit::TestCase
     
-  def test_lfs
+  def xtest_lfs
     r = RLayout.vfs_group('release')
     r.a << Importers.lfs_glob('rlayout/**/e*.rb')
     
@@ -19,7 +19,7 @@ class TestAcceptanceRuntime < Test::Unit::TestCase
     runtime.run(r, :dry_run => true)
   end
   
-  def test_zip
+  def xtest_zip
     r = RLayout.vfs_group('release')
     r.a << Importers.lfs_glob('rlayout/**/e*.rb')
     
@@ -28,7 +28,7 @@ class TestAcceptanceRuntime < Test::Unit::TestCase
     runtime.run(r, :dry_run => true)
   end
   
-  def test_text
+  def xtest_text
     r = Importers.mem_text('readme.txt', <<eos)
 Here goes your text. 
 Maybe some more text.
@@ -37,8 +37,17 @@ eos
     runtime = Runtime.new
     runtime.exporters << Exporters.lfs_directory('c:/temp/')
     runtime.run(r, :dry_run => false)
+  end
+  
+  def test_os
+    r = Importers.os_exec('changelog', 'svn log', :args => ['http://rlayout.googlecode.com/svn/trunk'])
+    runtime = Runtime.new
+    runtime.exporters << Exporters.lfs_directory('c:/temp/hugo')
+    runtime.run(r, :dry_run => false)
     
     
     
   end
+  
+  
 end

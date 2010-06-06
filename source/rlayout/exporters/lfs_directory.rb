@@ -78,7 +78,7 @@ module RLayout
       
       # Remove generated files
       def cleanup
-        fu_mode::rm_rf(@clean_up_path) if File.exist?(@clean_up_path)
+        fu_mode::rm_rf(@clean_up_path) if File.exists?(@clean_up_path)
       end
      
       protected
