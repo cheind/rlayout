@@ -2,7 +2,7 @@
 module RLayout
   module Importers
   
-    # Import a single file from +filepath+ from the local file system.
+    # Import the output of command executed on the local OS.
     #
     # === Supported Options
     # * <tt>:args</tt> - Array of arguments passed with command.
