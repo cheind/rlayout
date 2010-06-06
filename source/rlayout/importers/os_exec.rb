@@ -5,7 +5,7 @@ module RLayout
     # Import the output of command executed on the local OS.
     #
     # === Supported Options
-    # * <tt>:args</tt> - Array of arguments passed with command.
+    # * <tt>:args</tt> - Array of arguments passed with command. Commands are quote-escaped before passed to the OS.
     def Importers.os_exec(nodename, command, opts={})
       myopts = {:args => []}.merge(opts)
       mycommand = command + " " +  
