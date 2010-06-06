@@ -41,6 +41,7 @@ module RLayout
         i = @pattern.index('**')
         split_enabled = i && !@opts[:flatten_recursive]
         Dir.glob(@pattern).each do |fp|
+          next if File.directory?(fp) # Only targeting for files.
           if split_enabled
             nodes << split_path(fp, i)
           else
