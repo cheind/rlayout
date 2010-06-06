@@ -8,7 +8,8 @@ module RLayout
     # * <tt>:args</tt> - Array of arguments passed with command.
     def Importers.os_exec(nodename, command, opts={})
       myopts = {:args => []}.merge(opts)
-      mycommand = command + " " +  myopts[:args].join(' ')
+      mycommand = command + " " +  
+        myopts[:args].map{|e| "\"#{e}\""}.join(' ')
       OSExecNode.new(nodename, mycommand)
     end
     
