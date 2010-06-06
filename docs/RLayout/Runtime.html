@@ -1,0 +1,783 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+
+	<title>Class: RLayout::Runtime</title>
+
+	<link rel="stylesheet" href="../rdoc.css" type="text/css" media="screen" />
+
+	<script src="../js/jquery.js" type="text/javascript"
+		charset="utf-8"></script>
+	<script src="../js/thickbox-compressed.js" type="text/javascript"
+		charset="utf-8"></script>
+	<script src="../js/quicksearch.js" type="text/javascript"
+		charset="utf-8"></script>
+	<script src="../js/darkfish.js" type="text/javascript"
+		charset="utf-8"></script>
+
+</head>
+<body class="class">
+
+	<div id="metadata">
+		<div id="home-metadata">
+			<div id="home-section" class="section">
+        <h3 class="section-header">
+          <a href="../index.html">Home</a>
+          <a href="../index.html#classes">Classes</a>
+          <a href="../index.html#methods">Methods</a>
+        </h3>
+			</div>
+		</div>
+
+		<div id="file-metadata">
+			<div id="file-list-section" class="section">
+				<h3 class="section-header">In Files</h3>
+				<div class="section-body">
+					<ul>
+					
+						<li><a href="../rlayout/runtime_rb.html?TB_iframe=true&amp;height=550&amp;width=785"
+							class="thickbox" title="rlayout/runtime.rb">rlayout/runtime.rb</a></li>
+					
+					</ul>
+				</div>
+			</div>
+
+			
+		</div>
+
+		<div id="class-metadata">
+
+			<!-- Parent Class -->
+			
+			<div id="parent-class-section" class="section">
+				<h3 class="section-header">Parent</h3>
+				
+				<p class="link">Object</p>
+				
+			</div>
+			
+
+			<!-- Namespace Contents -->
+			
+			<div id="namespace-list-section" class="section">
+				<h3 class="section-header">Namespace</h3>
+				<ul class="link-list">
+					
+					<li><span class="type">CLASS</span> <a href="Runtime/ErrorFormatter.html">RLayout::Runtime::ErrorFormatter</a></li>
+					
+				</ul>
+			</div>
+			
+
+			<!-- Method Quickref -->
+			
+			<div id="method-list-section" class="section">
+				<h3 class="section-header">Methods</h3>
+				<ul class="link-list">
+					
+					<li><a href="#method-c-new">::new</a></li>
+					
+					<li><a href="#method-i-cleanup">#cleanup</a></li>
+					
+					<li><a href="#method-i-epilogue">#epilogue</a></li>
+					
+					<li><a href="#method-i-process">#process</a></li>
+					
+					<li><a href="#method-i-process_group">#process_group</a></li>
+					
+					<li><a href="#method-i-process_leaf">#process_leaf</a></li>
+					
+					<li><a href="#method-i-process_other">#process_other</a></li>
+					
+					<li><a href="#method-i-prologue">#prologue</a></li>
+					
+					<li><a href="#method-i-run">#run</a></li>
+					
+					<li><a href="#method-i-send_each">#send_each</a></li>
+					
+				</ul>
+			</div>
+			
+
+			<!-- Included Modules -->
+			
+		</div>
+
+		<div id="project-metadata">
+			
+			
+			<div id="fileindex-section" class="section project-section">
+				<h3 class="section-header">Files</h3>
+				<ul>
+				
+					<li class="file"><a href="../License.html">License</a></li>
+				
+					<li class="file"><a href="../README.html">README</a></li>
+				
+				</ul>
+			</div>
+			
+
+			<div id="classindex-section" class="section project-section">
+				<h3 class="section-header">Class Index
+					<span class="search-toggle"><img src="../images/find.png"
+						height="16" width="16" alt="[+]"
+						title="show/hide quicksearch" /></span></h3>
+				<form action="#" method="get" accept-charset="utf-8" class="initially-hidden">
+				<fieldset>
+					<legend>Quicksearch</legend>
+					<input type="text" name="quicksearch" value=""
+						class="quicksearch-field" />
+				</fieldset>
+				</form>
+
+				<ul class="link-list">
+				
+					<li><a href="../RLayout.html">RLayout</a></li>
+				
+					<li><a href="../RLayout/Error.html">RLayout::Error</a></li>
+				
+					<li><a href="../RLayout/Exporters.html">RLayout::Exporters</a></li>
+				
+					<li><a href="../RLayout/Exporters/Exporter.html">RLayout::Exporters::Exporter</a></li>
+				
+					<li><a href="../RLayout/Exporters/LFSDirectory.html">RLayout::Exporters::LFSDirectory</a></li>
+				
+					<li><a href="../RLayout/Exporters/LFSDirectory/MyStreamHandler.html">RLayout::Exporters::LFSDirectory::MyStreamHandler</a></li>
+				
+					<li><a href="../RLayout/Exporters/LFSZipFile.html">RLayout::Exporters::LFSZipFile</a></li>
+				
+					<li><a href="../RLayout/Exporters/LFSZipFile/MyStreamHandler.html">RLayout::Exporters::LFSZipFile::MyStreamHandler</a></li>
+				
+					<li><a href="../RLayout/Exporters/StreamHandler.html">RLayout::Exporters::StreamHandler</a></li>
+				
+					<li><a href="../RLayout/Importers.html">RLayout::Importers</a></li>
+				
+					<li><a href="../RLayout/Importers/HttpFileNode.html">RLayout::Importers::HttpFileNode</a></li>
+				
+					<li><a href="../RLayout/Importers/LFSFileNode.html">RLayout::Importers::LFSFileNode</a></li>
+				
+					<li><a href="../RLayout/Importers/LFSGlobbingHelper.html">RLayout::Importers::LFSGlobbingHelper</a></li>
+				
+					<li><a href="../RLayout/Importers/MemTextNode.html">RLayout::Importers::MemTextNode</a></li>
+				
+					<li><a href="../RLayout/Importers/OSExecNode.html">RLayout::Importers::OSExecNode</a></li>
+				
+					<li><a href="../RLayout/Runtime.html">RLayout::Runtime</a></li>
+				
+					<li><a href="../RLayout/Runtime/ErrorFormatter.html">RLayout::Runtime::ErrorFormatter</a></li>
+				
+					<li><a href="../RLayout/VFSGroup.html">RLayout::VFSGroup</a></li>
+				
+					<li><a href="../RLayout/VFSNode.html">RLayout::VFSNode</a></li>
+				
+					<li><a href="../RLayout/VFSStreamableNode.html">RLayout::VFSStreamableNode</a></li>
+				
+				</ul>
+				<div id="no-class-search-results" style="display: none;">No matching classes.</div>
+			</div>
+
+			
+		</div>
+	</div>
+
+	<div id="documentation">
+		<h1 class="class">RLayout::Runtime</h1>
+
+		<div id="description">
+			<p>
+Implements the process of exporting a virtual file system.
+</p>
+<p>
+The runtime is responsible for traversing the virtual file system, 
+managing reading from nodes and writing to exporters. The runtime
+implements a single read/multiple write architecture that allows node
+content to be read once and passed to multiple exporters. 
+</p>
+
+		</div>
+
+		<!-- Constants -->
+		
+
+		<!-- Attributes -->
+		
+		<div id="attribute-method-details" class="method-section section">
+			<h3 class="section-header">Attributes</h3>
+
+			
+			<div id="exporters-attribute-method" class="method-detail">
+				<a name="exporters"></a>
+				
+				<div class="method-heading attribute-method-heading">
+					<span class="method-name">exporters</span><span
+						class="attribute-access-type">[R]</span>
+				</div>
+
+				<div class="method-description">
+				
+				<p>
+Registered exporters
+</p>
+				
+				</div>
+			</div>
+			
+		</div>
+		
+
+		<!-- Methods -->
+		
+		<div id="public-class-method-details" class="method-section section">
+			<h3 class="section-header">Public Class Methods</h3>
+
+		
+			<div id="new-method" class="method-detail ">
+				<a name="method-c-new"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">new</span><span
+						class="method-args">(opts = {})</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Construct from options
+</p>
+<h3>Supported Options</h3>
+<ul>
+<li><p>
+<tt>:log</tt> - Instance of logger to be used.
+</p>
+</li>
+<li><p>
+<tt>:log_level</tt> - The logging level to be used.
+</p>
+</li>
+<li><p>
+<tt>:cleanup</tt> - Cleanup files generated by exporters in case of an
+error
+</p>
+</li>
+</ul>
+<p>
+
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="new-source">
+<pre>
+    <span class="ruby-comment cmt"># File rlayout/runtime.rb, line 35</span>
+35:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">opts</span> = {})
+36:       <span class="ruby-ivar">@opts</span> = {
+37:         <span class="ruby-value">:log</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-constant">Logger</span>.<span class="ruby-identifier">new</span>(<span class="ruby-constant">STDOUT</span>), 
+38:         <span class="ruby-value">:log_level</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-constant">Logger</span><span class="ruby-operator">::</span><span class="ruby-constant">INFO</span>,
+39:         <span class="ruby-value">:cleanup</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword kw">true</span>
+40:       }.<span class="ruby-identifier">merge</span>(<span class="ruby-identifier">opts</span>)
+41:       
+42:       <span class="ruby-ivar">@logger</span> = <span class="ruby-ivar">@opts</span>[<span class="ruby-value">:log</span>]
+43:       <span class="ruby-ivar">@logger</span>.<span class="ruby-identifier">level</span> = <span class="ruby-ivar">@opts</span>[<span class="ruby-value">:log_level</span>]
+44:       <span class="ruby-ivar">@logger</span>.<span class="ruby-identifier">progname</span> = <span class="ruby-value str">'RLayout'</span>
+45:       <span class="ruby-ivar">@logger</span>.<span class="ruby-identifier">formatter</span> = <span class="ruby-constant">ErrorFormatter</span>.<span class="ruby-identifier">new</span>
+46:       <span class="ruby-ivar">@exporters</span>  = []
+47:     <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+		</div>
+	
+		<div id="public-instance-method-details" class="method-section section">
+			<h3 class="section-header">Public Instance Methods</h3>
+
+		
+			<div id="run-method" class="method-detail ">
+				<a name="method-i-run"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">run</span><span
+						class="method-args">(root, opts={})</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Start parsing the VFS tree at <tt>root</tt>.
+</p>
+<h3>Supported Options</h3>
+<ul>
+<li><p>
+<tt>:dry_run</tt> - Run without reading or writing data but with verbose
+output.
+</p>
+</li>
+<li><p>
+<tt>:chunksize</tt> - Requested blocksize per read.
+</p>
+</li>
+<li><p>
+<tt>:cleanup_on_error</tt> - If true, invokes Exporters#Exporter#cleanup in
+case of an error.
+</p>
+</li>
+<li><p>
+<tt>:reraise_errors</tt> - If true, any error occurred is re-raised after
+possible treatment.
+</p>
+</li>
+</ul>
+<p>
+
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="run-source">
+<pre>
+    <span class="ruby-comment cmt"># File rlayout/runtime.rb, line 57</span>
+57:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">run</span>(<span class="ruby-identifier">root</span>, <span class="ruby-identifier">opts</span>={})
+58:       <span class="ruby-ivar">@run_opts</span> = {
+59:         <span class="ruby-value">:dry_run</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword kw">false</span>,
+60:         <span class="ruby-value">:chunksize</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">1024</span>
+61:       }.<span class="ruby-identifier">merge</span>(<span class="ruby-identifier">opts</span>)
+62:       
+63:       <span class="ruby-ivar">@logger</span>.<span class="ruby-identifier">info</span>(<span class="ruby-value str">'Starting.'</span>)
+64:       
+65:       <span class="ruby-keyword kw">begin</span>
+66:         <span class="ruby-identifier">init_tags</span> = <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">prologue</span>(<span class="ruby-identifier">root</span>)
+67:         <span class="ruby-constant">RLayout</span>.<span class="ruby-identifier">vfs_preorder</span>(
+68:           <span class="ruby-identifier">root</span>, 
+69:           <span class="ruby-identifier">init_tags</span>,
+70:           <span class="ruby-value">:unroll_incomplete</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword kw">true</span>, 
+71:           &amp;<span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">method</span>(<span class="ruby-value">:process</span>)
+72:         )
+73:         <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">epilogue</span>
+74:         <span class="ruby-ivar">@logger</span>.<span class="ruby-identifier">info</span>(<span class="ruby-value str">'Finished.'</span>)
+75:       <span class="ruby-keyword kw">rescue</span> <span class="ruby-constant">StandardError</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">err</span>
+76:         <span class="ruby-ivar">@logger</span>.<span class="ruby-identifier">fatal</span>(<span class="ruby-identifier">err</span>.<span class="ruby-identifier">message</span>)
+77:         <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@opts</span>[<span class="ruby-value">:cleanup</span>]
+78:           <span class="ruby-ivar">@logger</span>.<span class="ruby-identifier">info</span>(<span class="ruby-value str">'Cleaning up.'</span>)
+79:           <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">cleanup</span>
+80:         <span class="ruby-keyword kw">end</span>
+81:         <span class="ruby-ivar">@logger</span>.<span class="ruby-identifier">info</span>(<span class="ruby-value str">'Failed.'</span>)
+82:         <span class="ruby-identifier">raise</span> <span class="ruby-identifier">err</span>
+83:       <span class="ruby-keyword kw">end</span>
+84:     <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+		</div>
+	
+		<div id="protected-instance-method-details" class="method-section section">
+			<h3 class="section-header">Protected Instance Methods</h3>
+
+		
+			<div id="cleanup-method" class="method-detail ">
+				<a name="method-i-cleanup"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">cleanup</span><span
+						class="method-args">()</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Invoke Exporters#Exporter#cleanup for each exporter. 
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="cleanup-source">
+<pre>
+     <span class="ruby-comment cmt"># File rlayout/runtime.rb, line 173</span>
+173:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">cleanup</span>
+174:       <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">send_each</span>(<span class="ruby-ivar">@exporters</span>, <span class="ruby-value">:cleanup</span>)
+175:     <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+			<div id="epilogue-method" class="method-detail ">
+				<a name="method-i-epilogue"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">epilogue</span><span
+						class="method-args">()</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Invoke Exporters#Exporter#epilogue for each exporter. 
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="epilogue-source">
+<pre>
+     <span class="ruby-comment cmt"># File rlayout/runtime.rb, line 167</span>
+167:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">epilogue</span>
+168:       <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">send_each</span>(<span class="ruby-ivar">@exporters</span>, <span class="ruby-value">:epilogue</span>)
+169:     <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+			<div id="process-method" class="method-detail ">
+				<a name="method-i-process"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">process</span><span
+						class="method-args">(node, tags)</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Process a <tt>node</tt> and associated <tt>tags</tt>.
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="process-source">
+<pre>
+     <span class="ruby-comment cmt"># File rlayout/runtime.rb, line 101</span>
+101:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">process</span>(<span class="ruby-identifier">node</span>, <span class="ruby-identifier">tags</span>)
+102:       <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">node</span>.<span class="ruby-identifier">kind_of?</span>(<span class="ruby-constant">VFSGroup</span>)
+103:         <span class="ruby-identifier">process_group</span>(<span class="ruby-identifier">node</span>, <span class="ruby-identifier">tags</span>)
+104:       <span class="ruby-keyword kw">elsif</span> <span class="ruby-identifier">node</span>.<span class="ruby-identifier">kind_of?</span>(<span class="ruby-constant">VFSStreamableNode</span>)
+105:         <span class="ruby-identifier">process_leaf</span>(<span class="ruby-identifier">node</span>, <span class="ruby-identifier">tags</span>)
+106:       <span class="ruby-keyword kw">else</span>
+107:         <span class="ruby-identifier">process_other</span>(<span class="ruby-identifier">node</span>)
+108:       <span class="ruby-keyword kw">end</span>
+109:     <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+			<div id="process-group-method" class="method-detail ">
+				<a name="method-i-process_group"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">process_group</span><span
+						class="method-args">(node, tags)</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Process a group <tt>node</tt> along with exporter <tt>tags</tt>.
+</p>
+<p>
+Values returned from Exporters#Exporter#group are considered tags  for the
+child nodes of <tt>node</tt>. 
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="process-group-source">
+<pre>
+     <span class="ruby-comment cmt"># File rlayout/runtime.rb, line 116</span>
+116:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">process_group</span>(<span class="ruby-identifier">node</span>, <span class="ruby-identifier">tags</span>)
+117:       <span class="ruby-identifier">next_tags</span> = []
+118:       <span class="ruby-ivar">@exporters</span>.<span class="ruby-identifier">each_with_index</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">e</span>, <span class="ruby-identifier">i</span><span class="ruby-operator">|</span>
+119:         <span class="ruby-identifier">next_tags</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">e</span>.<span class="ruby-identifier">group</span>(<span class="ruby-identifier">node</span>, <span class="ruby-identifier">tags</span>[<span class="ruby-identifier">i</span>])
+120:       <span class="ruby-keyword kw">end</span>
+121:       <span class="ruby-identifier">next_tags</span>
+122:     <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+			<div id="process-leaf-method" class="method-detail ">
+				<a name="method-i-process_leaf"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">process_leaf</span><span
+						class="method-args">(node, tags)</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Process a streamable leaf node.
+</p>
+<p>
+Each registered Exporters#Exporter is asked if it wheter likes to
+participate  in streaming the leaf pointed to by <tt>node</tt> or not. In
+case it is, Exporters#Exporter  should return an instance
+Exporters#StreamHandler, nil otherwise.
+</p>
+<p>
+The <a href="Runtime.html">Runtime</a> implements a single-read/multiple
+write architecture, therefore the following methods are called after each
+method was invoked for all handlers.
+</p>
+<ul>
+<li><p>
+Exporters#StreamHandler#open - Start of node processing.
+</p>
+</li>
+<li><p>
+Exporters#StreamHandler#write - Called for each block read from
+<tt>node</tt>
+</p>
+</li>
+<li><p>
+Exporters#StreamHandler#close - End of node processing. Called even in case
+of an error.
+</p>
+</li>
+</ul>
+<p>
+
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="process-leaf-source">
+<pre>
+     <span class="ruby-comment cmt"># File rlayout/runtime.rb, line 137</span>
+137:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">process_leaf</span>(<span class="ruby-identifier">node</span>, <span class="ruby-identifier">tags</span>)
+138:       <span class="ruby-identifier">chunksize</span> = <span class="ruby-ivar">@run_opts</span>[<span class="ruby-value">:chunksize</span>]
+139:       <span class="ruby-identifier">handlers</span> = []
+140:       <span class="ruby-ivar">@exporters</span>.<span class="ruby-identifier">each_with_index</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">e</span>, <span class="ruby-identifier">i</span><span class="ruby-operator">|</span>
+141:         <span class="ruby-identifier">h</span> = <span class="ruby-identifier">e</span>.<span class="ruby-identifier">leaf</span>(<span class="ruby-identifier">node</span>, <span class="ruby-identifier">tags</span>[<span class="ruby-identifier">i</span>])
+142:         <span class="ruby-identifier">handlers</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">h</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">h</span>
+143:       <span class="ruby-keyword kw">end</span>
+144:       <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">handlers</span>.<span class="ruby-identifier">empty?</span>
+145:         <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">send_each</span>(<span class="ruby-identifier">handlers</span>, <span class="ruby-value">:open</span>, <span class="ruby-identifier">node</span>)
+146:         <span class="ruby-keyword kw">begin</span>
+147:           <span class="ruby-identifier">node</span>.<span class="ruby-identifier">read_stream</span>(<span class="ruby-identifier">chunksize</span>) <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">bytes</span><span class="ruby-operator">|</span>
+148:             <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">send_each</span>(<span class="ruby-identifier">handlers</span>, <span class="ruby-value">:write</span>, <span class="ruby-identifier">bytes</span>)
+149:           <span class="ruby-keyword kw">end</span>
+150:         <span class="ruby-keyword kw">ensure</span>
+151:           <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">send_each</span>(<span class="ruby-identifier">handlers</span>, <span class="ruby-value">:close</span>, <span class="ruby-identifier">node</span>)
+152:         <span class="ruby-keyword kw">end</span>
+153:       <span class="ruby-keyword kw">end</span>
+154:     <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+			<div id="process-other-method" class="method-detail ">
+				<a name="method-i-process_other"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">process_other</span><span
+						class="method-args">(node, tags)</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Process an unrecognized node. Invokes Exporters#Exporter#other for each
+exporter. 
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="process-other-source">
+<pre>
+     <span class="ruby-comment cmt"># File rlayout/runtime.rb, line 159</span>
+159:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">process_other</span>(<span class="ruby-identifier">node</span>, <span class="ruby-identifier">tags</span>)
+160:       <span class="ruby-ivar">@exporters</span>.<span class="ruby-identifier">each_with_index</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">e</span>, <span class="ruby-identifier">i</span><span class="ruby-operator">|</span>
+161:         <span class="ruby-identifier">e</span>.<span class="ruby-identifier">other</span>(<span class="ruby-identifier">node</span>, <span class="ruby-identifier">tags</span>[<span class="ruby-identifier">i</span>])
+162:       <span class="ruby-keyword kw">end</span>
+163:     <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+			<div id="prologue-method" class="method-detail ">
+				<a name="method-i-prologue"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">prologue</span><span
+						class="method-args">(root)</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Inform exporters that parsing is about to start.
+</p>
+<p>
+Values returned from Exporters#Exporter#prologue are considered to be tags
+for <tt>root</tt>.
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="prologue-source">
+<pre>
+    <span class="ruby-comment cmt"># File rlayout/runtime.rb, line 92</span>
+92:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">prologue</span>(<span class="ruby-identifier">root</span>)
+93:       <span class="ruby-identifier">init_tags</span> = []
+94:       <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">send_each</span>(<span class="ruby-ivar">@exporters</span>, <span class="ruby-value">:prologue</span>, <span class="ruby-identifier">root</span>, <span class="ruby-ivar">@run_opts</span>) <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">ret</span><span class="ruby-operator">|</span>
+95:         <span class="ruby-identifier">init_tags</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">ret</span>
+96:       <span class="ruby-keyword kw">end</span>
+97:       <span class="ruby-identifier">init_tags</span>
+98:     <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+			<div id="send-each-method" class="method-detail ">
+				<a name="method-i-send_each"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">send_each</span><span
+						class="method-args">(collection, method_name, *args)</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Invoke <tt>method_name</tt> along with <tt>*args</tt> on each element  in
+<tt>collection</tt>. 
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="send-each-source">
+<pre>
+     <span class="ruby-comment cmt"># File rlayout/runtime.rb, line 180</span>
+180:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">send_each</span>(<span class="ruby-identifier">collection</span>, <span class="ruby-identifier">method_name</span>, *<span class="ruby-identifier">args</span>)  <span class="ruby-comment cmt"># :yield: result of each invocation</span>
+181:       <span class="ruby-identifier">collection</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">e</span><span class="ruby-operator">|</span>
+182:         <span class="ruby-identifier">result</span> = <span class="ruby-identifier">e</span>.<span class="ruby-identifier">send</span>(<span class="ruby-identifier">method_name</span>, *<span class="ruby-identifier">args</span>)
+183:         <span class="ruby-keyword kw">yield</span> <span class="ruby-identifier">result</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">block_given?</span>
+184:       <span class="ruby-keyword kw">end</span>
+185:     <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+		</div>
+	
+
+	</div>
+
+
+	<div id="rdoc-debugging-section-dump" class="debugging-section">
+	
+		<p>Disabled; run with --debug to generate this.</p>
+	
+	</div>
+
+	<div id="validator-badges">
+		<p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+		<p><small>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish
+			Rdoc Generator</a> 1.1.6</small>.</p>
+	</div>
+
+</body>
+</html>
+
