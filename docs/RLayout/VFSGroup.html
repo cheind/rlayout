@@ -1,0 +1,702 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+
+	<title>Class: RLayout::VFSGroup</title>
+
+	<link rel="stylesheet" href="../rdoc.css" type="text/css" media="screen" />
+
+	<script src="../js/jquery.js" type="text/javascript"
+		charset="utf-8"></script>
+	<script src="../js/thickbox-compressed.js" type="text/javascript"
+		charset="utf-8"></script>
+	<script src="../js/quicksearch.js" type="text/javascript"
+		charset="utf-8"></script>
+	<script src="../js/darkfish.js" type="text/javascript"
+		charset="utf-8"></script>
+
+</head>
+<body class="class">
+
+	<div id="metadata">
+		<div id="home-metadata">
+			<div id="home-section" class="section">
+        <h3 class="section-header">
+          <a href="../index.html">Home</a>
+          <a href="../index.html#classes">Classes</a>
+          <a href="../index.html#methods">Methods</a>
+        </h3>
+			</div>
+		</div>
+
+		<div id="file-metadata">
+			<div id="file-list-section" class="section">
+				<h3 class="section-header">In Files</h3>
+				<div class="section-body">
+					<ul>
+					
+						<li><a href="../rlayout/vfs_group_rb.html?TB_iframe=true&amp;height=550&amp;width=785"
+							class="thickbox" title="rlayout/vfs_group.rb">rlayout/vfs_group.rb</a></li>
+					
+					</ul>
+				</div>
+			</div>
+
+			
+		</div>
+
+		<div id="class-metadata">
+
+			<!-- Parent Class -->
+			
+			<div id="parent-class-section" class="section">
+				<h3 class="section-header">Parent</h3>
+				
+				<p class="link"><a href="VFSNode.html">RLayout::VFSNode</a></p>
+				
+			</div>
+			
+
+			<!-- Namespace Contents -->
+			
+
+			<!-- Method Quickref -->
+			
+			<div id="method-list-section" class="section">
+				<h3 class="section-header">Methods</h3>
+				<ul class="link-list">
+					
+					<li><a href="#method-c-new">::new</a></li>
+					
+					<li><a href="#method-i-%3C%3C">#<<</a></li>
+					
+					<li><a href="#method-i-%5B%5D">#[]</a></li>
+					
+					<li><a href="#method-i-add_child">#add_child</a></li>
+					
+					<li><a href="#method-i-add_children">#add_children</a></li>
+					
+					<li><a href="#method-i-complete%3F">#complete?</a></li>
+					
+					<li><a href="#method-i-get_or_create_node">#get_or_create_node</a></li>
+					
+					<li><a href="#method-i-incomplete%21">#incomplete!</a></li>
+					
+					<li><a href="#method-i-incomplete%3F">#incomplete?</a></li>
+					
+					<li><a href="#method-i-method_missing">#method_missing</a></li>
+					
+					<li><a href="#method-i-unroll">#unroll</a></li>
+					
+				</ul>
+			</div>
+			
+
+			<!-- Included Modules -->
+			
+		</div>
+
+		<div id="project-metadata">
+			
+			
+			<div id="fileindex-section" class="section project-section">
+				<h3 class="section-header">Files</h3>
+				<ul>
+				
+					<li class="file"><a href="../License.html">License</a></li>
+				
+					<li class="file"><a href="../README.html">README</a></li>
+				
+				</ul>
+			</div>
+			
+
+			<div id="classindex-section" class="section project-section">
+				<h3 class="section-header">Class Index
+					<span class="search-toggle"><img src="../images/find.png"
+						height="16" width="16" alt="[+]"
+						title="show/hide quicksearch" /></span></h3>
+				<form action="#" method="get" accept-charset="utf-8" class="initially-hidden">
+				<fieldset>
+					<legend>Quicksearch</legend>
+					<input type="text" name="quicksearch" value=""
+						class="quicksearch-field" />
+				</fieldset>
+				</form>
+
+				<ul class="link-list">
+				
+					<li><a href="../RLayout.html">RLayout</a></li>
+				
+					<li><a href="../RLayout/Error.html">RLayout::Error</a></li>
+				
+					<li><a href="../RLayout/Exporters.html">RLayout::Exporters</a></li>
+				
+					<li><a href="../RLayout/Exporters/Exporter.html">RLayout::Exporters::Exporter</a></li>
+				
+					<li><a href="../RLayout/Exporters/LFSDirectory.html">RLayout::Exporters::LFSDirectory</a></li>
+				
+					<li><a href="../RLayout/Exporters/LFSDirectory/MyStreamHandler.html">RLayout::Exporters::LFSDirectory::MyStreamHandler</a></li>
+				
+					<li><a href="../RLayout/Exporters/LFSZipFile.html">RLayout::Exporters::LFSZipFile</a></li>
+				
+					<li><a href="../RLayout/Exporters/LFSZipFile/MyStreamHandler.html">RLayout::Exporters::LFSZipFile::MyStreamHandler</a></li>
+				
+					<li><a href="../RLayout/Exporters/StreamHandler.html">RLayout::Exporters::StreamHandler</a></li>
+				
+					<li><a href="../RLayout/Importers.html">RLayout::Importers</a></li>
+				
+					<li><a href="../RLayout/Importers/HttpFileNode.html">RLayout::Importers::HttpFileNode</a></li>
+				
+					<li><a href="../RLayout/Importers/LFSFileNode.html">RLayout::Importers::LFSFileNode</a></li>
+				
+					<li><a href="../RLayout/Importers/LFSGlobbingHelper.html">RLayout::Importers::LFSGlobbingHelper</a></li>
+				
+					<li><a href="../RLayout/Importers/MemTextNode.html">RLayout::Importers::MemTextNode</a></li>
+				
+					<li><a href="../RLayout/Importers/OSExecNode.html">RLayout::Importers::OSExecNode</a></li>
+				
+					<li><a href="../RLayout/Runtime.html">RLayout::Runtime</a></li>
+				
+					<li><a href="../RLayout/Runtime/ErrorFormatter.html">RLayout::Runtime::ErrorFormatter</a></li>
+				
+					<li><a href="../RLayout/VFSGroup.html">RLayout::VFSGroup</a></li>
+				
+					<li><a href="../RLayout/VFSNode.html">RLayout::VFSNode</a></li>
+				
+					<li><a href="../RLayout/VFSStreamableNode.html">RLayout::VFSStreamableNode</a></li>
+				
+				</ul>
+				<div id="no-class-search-results" style="display: none;">No matching classes.</div>
+			</div>
+
+			
+		</div>
+	</div>
+
+	<div id="documentation">
+		<h1 class="class">RLayout::VFSGroup</h1>
+
+		<div id="description">
+			<p>
+A grouping node for child nodes.
+</p>
+<p>
+A group node is either complete or incomplete. Complete group nodes
+contain all child nodes explicitely. Incomplete group nodes contain
+possibly &#8216;rolled-up&#8217; child nodes that will be unrolled when
+generating the output.
+</p>
+<p>
+Since <a href="Runtime.html">Runtime</a> implements a single read/multiple
+write architecture that aims at reducing the number of required reads, you
+should use dynamically generated child nodes when access to the layout
+cannot be defined without possibly long lasting reads. 
+</p>
+
+		</div>
+
+		<!-- Constants -->
+		
+
+		<!-- Attributes -->
+		
+		<div id="attribute-method-details" class="method-section section">
+			<h3 class="section-header">Attributes</h3>
+
+			
+			<div id="nodes-attribute-method" class="method-detail">
+				<a name="nodes"></a>
+				
+				<div class="method-heading attribute-method-heading">
+					<span class="method-name">nodes</span><span
+						class="attribute-access-type">[R]</span>
+				</div>
+
+				<div class="method-description">
+				
+				<p>
+Sub-nodes as a hash of VFSNode#name to <a href="VFSNode.html">VFSNode</a>
+</p>
+				
+				</div>
+			</div>
+			
+		</div>
+		
+
+		<!-- Methods -->
+		
+		<div id="public-class-method-details" class="method-section section">
+			<h3 class="section-header">Public Class Methods</h3>
+
+		
+			<div id="new-method" class="method-detail ">
+				<a name="method-c-new"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">new</span><span
+						class="method-args">(name)</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Initialize with name
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="new-source">
+<pre>
+    <span class="ruby-comment cmt"># File rlayout/vfs_group.rb, line 21</span>
+21:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">name</span>)
+22:       <span class="ruby-keyword kw">super</span>(<span class="ruby-identifier">name</span>)
+23:       <span class="ruby-ivar">@nodes</span> = {}
+24:       <span class="ruby-ivar">@is_complete</span> = <span class="ruby-keyword kw">true</span>
+25:     <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+		</div>
+	
+		<div id="public-instance-method-details" class="method-section section">
+			<h3 class="section-header">Public Instance Methods</h3>
+
+		
+			<div id="--method" class="method-detail method-alias">
+				<a name="method-i-%3C%3C"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">&lt;&lt;</span><span
+						class="method-args">(nodes)</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					
+					
+
+					
+				</div>
+
+				
+
+				
+				<div class="aliases">
+          Alias for: <a href="VFSGroup.html#method-i-add_children">add_children</a>
+				</div>
+				
+			</div>
+
+		
+			<div id="--method" class="method-detail ">
+				<a name="method-i-%5B%5D"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">[]</span><span
+						class="method-args">(name)</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Access or create nodes with otherwise invalid characters.
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="--source">
+<pre>
+    <span class="ruby-comment cmt"># File rlayout/vfs_group.rb, line 33</span>
+33:     <span class="ruby-keyword kw">def</span> <span class="ruby-operator">[]</span>(<span class="ruby-identifier">name</span>)
+34:       <span class="ruby-identifier">get_or_create_node</span>(<span class="ruby-identifier">name</span>.<span class="ruby-identifier">to_s</span>, <span class="ruby-keyword kw">false</span>)
+35:     <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+			<div id="add-child-method" class="method-detail ">
+				<a name="method-i-add_child"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">add_child</span><span
+						class="method-args">(b)</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Add child node. Recursively adds the content of b. In case of a node-name
+clash,  the content of this node takes precedence of whatever is in b.
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="add-child-source">
+<pre>
+    <span class="ruby-comment cmt"># File rlayout/vfs_group.rb, line 49</span>
+49:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">add_child</span>(<span class="ruby-identifier">b</span>)
+50:       <span class="ruby-keyword kw">return</span> <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">b</span>
+51:       <span class="ruby-identifier">a</span> = <span class="ruby-ivar">@nodes</span>[<span class="ruby-identifier">b</span>.<span class="ruby-identifier">name</span>]
+52:       <span class="ruby-keyword kw">if</span> <span class="ruby-operator">!</span><span class="ruby-identifier">a</span>
+53:         <span class="ruby-ivar">@nodes</span>[<span class="ruby-identifier">b</span>.<span class="ruby-identifier">name</span>] = <span class="ruby-identifier">b</span>
+54:       <span class="ruby-keyword kw">elsif</span> <span class="ruby-identifier">a</span>.<span class="ruby-identifier">kind_of?</span>(<span class="ruby-constant">VFSGroup</span>)
+55:         <span class="ruby-comment cmt"># Node is already present, merge children</span>
+56:         <span class="ruby-identifier">b</span>.<span class="ruby-identifier">nodes</span>.<span class="ruby-identifier">each_value</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">n</span><span class="ruby-operator">|</span>
+57:           <span class="ruby-identifier">a</span>.<span class="ruby-identifier">add_child</span>(<span class="ruby-identifier">n</span>)
+58:         <span class="ruby-keyword kw">end</span>
+59:       <span class="ruby-keyword kw">end</span>
+60:     <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+			<div id="add-children-method" class="method-detail ">
+				<a name="method-i-add_children"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">add_children</span><span
+						class="method-args">(nodes)</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Add child nodes.
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="add-children-source">
+<pre>
+    <span class="ruby-comment cmt"># File rlayout/vfs_group.rb, line 38</span>
+38:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">add_children</span>(<span class="ruby-identifier">nodes</span>)
+39:       <span class="ruby-keyword kw">case</span> <span class="ruby-identifier">nodes</span>
+40:         <span class="ruby-keyword kw">when</span> <span class="ruby-constant">Array</span> <span class="ruby-keyword kw">then</span> <span class="ruby-identifier">nodes</span>.<span class="ruby-identifier">each</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">n</span><span class="ruby-operator">|</span> <span class="ruby-identifier">add_child</span>(<span class="ruby-identifier">n</span>)}
+41:         <span class="ruby-keyword kw">when</span> <span class="ruby-constant">VFSNode</span> <span class="ruby-keyword kw">then</span> <span class="ruby-identifier">add_child</span>(<span class="ruby-identifier">nodes</span>)
+42:       <span class="ruby-keyword kw">end</span>
+43:     <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+				<div class="aliases">
+					Also aliased as: <a href="VFSGroup.html#method-i-%3C%3C">&lt;&lt;</a>
+				</div>
+				
+
+				
+			</div>
+
+		
+			<div id="complete--method" class="method-detail ">
+				<a name="method-i-complete%3F"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">complete?</span><span
+						class="method-args">()</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+True if node is complete, false otherwise
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="complete--source">
+<pre>
+    <span class="ruby-comment cmt"># File rlayout/vfs_group.rb, line 63</span>
+63:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">complete?</span>
+64:       <span class="ruby-ivar">@is_complete</span>
+65:     <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+			<div id="incomplete--method" class="method-detail ">
+				<a name="method-i-incomplete%3F"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">incomplete?</span><span
+						class="method-args">()</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+True if node is incomplete, false otherwise
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="incomplete--source">
+<pre>
+    <span class="ruby-comment cmt"># File rlayout/vfs_group.rb, line 68</span>
+68:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">incomplete?</span>
+69:       <span class="ruby-operator">!</span><span class="ruby-identifier">complete?</span>
+70:     <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+			<div id="method-missing-method" class="method-detail ">
+				<a name="method-i-method_missing"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">method_missing</span><span
+						class="method-args">(method_name, *args)</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Method missing event triggers creation of sub-node
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="method-missing-source">
+<pre>
+    <span class="ruby-comment cmt"># File rlayout/vfs_group.rb, line 28</span>
+28:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">method_missing</span>(<span class="ruby-identifier">method_name</span>, *<span class="ruby-identifier">args</span>)
+29:       <span class="ruby-identifier">get_or_create_node</span>(<span class="ruby-identifier">method_name</span>.<span class="ruby-identifier">to_s</span>, <span class="ruby-keyword kw">true</span>)
+30:     <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+			<div id="unroll-method" class="method-detail ">
+				<a name="method-i-unroll"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">unroll</span><span
+						class="method-args">()</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Dynamically expand rolled-up child nodes
+</p>
+<p>
+A <a href="VFSGroup.html">VFSGroup</a> can either be complete or
+incomplete. A term that refers to the state of its child nodes. If
+complete, all child nodes are present,  some child nodes are dynamically
+created while traversing the virtual file system.
+</p>
+<p>
+Use unroll to return an Array of dynamically generated child nodes.
+Explicit existing child nodes take precedence over dynamically unrolled
+nodes. It is possible to merge dynamically generated nodes with the
+explicit children (use <a
+href="VFSGroup.html#method-i-add_children">add_children</a>). In that case
+you should change the nodes state to complete. 
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="unroll-source">
+<pre>
+    <span class="ruby-comment cmt"># File rlayout/vfs_group.rb, line 83</span>
+83:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">unroll</span>
+84:       <span class="ruby-keyword kw">nil</span>
+85:     <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+		</div>
+	
+		<div id="protected-instance-method-details" class="method-section section">
+			<h3 class="section-header">Protected Instance Methods</h3>
+
+		
+			<div id="get-or-create-node-method" class="method-detail ">
+				<a name="method-i-get_or_create_node"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">get_or_create_node</span><span
+						class="method-args">(name, create_accessor)</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Fetch node or create node. If node is created the a new instance of the
+most derived class is created.
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="get-or-create-node-source">
+<pre>
+     <span class="ruby-comment cmt"># File rlayout/vfs_group.rb, line 96</span>
+ 96:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">get_or_create_node</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">create_accessor</span>)
+ 97:       <span class="ruby-identifier">n</span> = (<span class="ruby-ivar">@nodes</span>[<span class="ruby-identifier">name</span>] <span class="ruby-operator">||=</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">name</span>))
+ 98:       <span class="ruby-comment cmt"># Define method on the singleton class of ourself. I.e it affects only</span>
+ 99:       <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">create_accessor</span>
+100:         <span class="ruby-identifier">sig</span> = <span class="ruby-keyword kw">class</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-keyword kw">self</span>; <span class="ruby-keyword kw">self</span>; <span class="ruby-keyword kw">end</span>
+101:         <span class="ruby-identifier">sig</span>.<span class="ruby-identifier">class_eval</span> <span class="ruby-keyword kw">do</span>
+102:           <span class="ruby-identifier">define_method</span> <span class="ruby-identifier">name</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span>*<span class="ruby-identifier">args</span><span class="ruby-operator">|</span>
+103:             <span class="ruby-identifier">n</span>
+104:           <span class="ruby-keyword kw">end</span>
+105:         <span class="ruby-keyword kw">end</span>
+106:       <span class="ruby-keyword kw">end</span>
+107:       <span class="ruby-identifier">n</span>
+108:     <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+			<div id="incomplete--method" class="method-detail ">
+				<a name="method-i-incomplete%21"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">incomplete!</span><span
+						class="method-args">()</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Mark node as incomplete
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="incomplete--source">
+<pre>
+    <span class="ruby-comment cmt"># File rlayout/vfs_group.rb, line 90</span>
+90:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">incomplete!</span>
+91:       <span class="ruby-ivar">@is_complete</span> = <span class="ruby-keyword kw">false</span>
+92:     <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+		</div>
+	
+
+	</div>
+
+
+	<div id="rdoc-debugging-section-dump" class="debugging-section">
+	
+		<p>Disabled; run with --debug to generate this.</p>
+	
+	</div>
+
+	<div id="validator-badges">
+		<p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+		<p><small>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish
+			Rdoc Generator</a> 1.1.6</small>.</p>
+	</div>
+
+</body>
+</html>
+

@@ -1,0 +1,514 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+
+	<title>Class: RLayout::Exporters::LFSZipFile</title>
+
+	<link rel="stylesheet" href="../../rdoc.css" type="text/css" media="screen" />
+
+	<script src="../../js/jquery.js" type="text/javascript"
+		charset="utf-8"></script>
+	<script src="../../js/thickbox-compressed.js" type="text/javascript"
+		charset="utf-8"></script>
+	<script src="../../js/quicksearch.js" type="text/javascript"
+		charset="utf-8"></script>
+	<script src="../../js/darkfish.js" type="text/javascript"
+		charset="utf-8"></script>
+
+</head>
+<body class="class">
+
+	<div id="metadata">
+		<div id="home-metadata">
+			<div id="home-section" class="section">
+        <h3 class="section-header">
+          <a href="../../index.html">Home</a>
+          <a href="../../index.html#classes">Classes</a>
+          <a href="../../index.html#methods">Methods</a>
+        </h3>
+			</div>
+		</div>
+
+		<div id="file-metadata">
+			<div id="file-list-section" class="section">
+				<h3 class="section-header">In Files</h3>
+				<div class="section-body">
+					<ul>
+					
+						<li><a href="../../rlayout/exporters/lfs_zipfile_rb.html?TB_iframe=true&amp;height=550&amp;width=785"
+							class="thickbox" title="rlayout/exporters/lfs_zipfile.rb">rlayout/exporters/lfs_zipfile.rb</a></li>
+					
+					</ul>
+				</div>
+			</div>
+
+			
+		</div>
+
+		<div id="class-metadata">
+
+			<!-- Parent Class -->
+			
+			<div id="parent-class-section" class="section">
+				<h3 class="section-header">Parent</h3>
+				
+				<p class="link"><a href="Exporter.html">RLayout::Exporters::Exporter</a></p>
+				
+			</div>
+			
+
+			<!-- Namespace Contents -->
+			
+			<div id="namespace-list-section" class="section">
+				<h3 class="section-header">Namespace</h3>
+				<ul class="link-list">
+					
+					<li><span class="type">CLASS</span> <a href="LFSZipFile/MyStreamHandler.html">RLayout::Exporters::LFSZipFile::MyStreamHandler</a></li>
+					
+				</ul>
+			</div>
+			
+
+			<!-- Method Quickref -->
+			
+			<div id="method-list-section" class="section">
+				<h3 class="section-header">Methods</h3>
+				<ul class="link-list">
+					
+					<li><a href="#method-c-new">::new</a></li>
+					
+					<li><a href="#method-i-cleanup">#cleanup</a></li>
+					
+					<li><a href="#method-i-epilogue">#epilogue</a></li>
+					
+					<li><a href="#method-i-fu_mode">#fu_mode</a></li>
+					
+					<li><a href="#method-i-group">#group</a></li>
+					
+					<li><a href="#method-i-leaf">#leaf</a></li>
+					
+					<li><a href="#method-i-prologue">#prologue</a></li>
+					
+				</ul>
+			</div>
+			
+
+			<!-- Included Modules -->
+			
+		</div>
+
+		<div id="project-metadata">
+			
+			
+			<div id="fileindex-section" class="section project-section">
+				<h3 class="section-header">Files</h3>
+				<ul>
+				
+					<li class="file"><a href="../../License.html">License</a></li>
+				
+					<li class="file"><a href="../../README.html">README</a></li>
+				
+				</ul>
+			</div>
+			
+
+			<div id="classindex-section" class="section project-section">
+				<h3 class="section-header">Class Index
+					<span class="search-toggle"><img src="../../images/find.png"
+						height="16" width="16" alt="[+]"
+						title="show/hide quicksearch" /></span></h3>
+				<form action="#" method="get" accept-charset="utf-8" class="initially-hidden">
+				<fieldset>
+					<legend>Quicksearch</legend>
+					<input type="text" name="quicksearch" value=""
+						class="quicksearch-field" />
+				</fieldset>
+				</form>
+
+				<ul class="link-list">
+				
+					<li><a href="../../RLayout.html">RLayout</a></li>
+				
+					<li><a href="../../RLayout/Error.html">RLayout::Error</a></li>
+				
+					<li><a href="../../RLayout/Exporters.html">RLayout::Exporters</a></li>
+				
+					<li><a href="../../RLayout/Exporters/Exporter.html">RLayout::Exporters::Exporter</a></li>
+				
+					<li><a href="../../RLayout/Exporters/LFSDirectory.html">RLayout::Exporters::LFSDirectory</a></li>
+				
+					<li><a href="../../RLayout/Exporters/LFSDirectory/MyStreamHandler.html">RLayout::Exporters::LFSDirectory::MyStreamHandler</a></li>
+				
+					<li><a href="../../RLayout/Exporters/LFSZipFile.html">RLayout::Exporters::LFSZipFile</a></li>
+				
+					<li><a href="../../RLayout/Exporters/LFSZipFile/MyStreamHandler.html">RLayout::Exporters::LFSZipFile::MyStreamHandler</a></li>
+				
+					<li><a href="../../RLayout/Exporters/StreamHandler.html">RLayout::Exporters::StreamHandler</a></li>
+				
+					<li><a href="../../RLayout/Importers.html">RLayout::Importers</a></li>
+				
+					<li><a href="../../RLayout/Importers/HttpFileNode.html">RLayout::Importers::HttpFileNode</a></li>
+				
+					<li><a href="../../RLayout/Importers/LFSFileNode.html">RLayout::Importers::LFSFileNode</a></li>
+				
+					<li><a href="../../RLayout/Importers/LFSGlobbingHelper.html">RLayout::Importers::LFSGlobbingHelper</a></li>
+				
+					<li><a href="../../RLayout/Importers/MemTextNode.html">RLayout::Importers::MemTextNode</a></li>
+				
+					<li><a href="../../RLayout/Importers/OSExecNode.html">RLayout::Importers::OSExecNode</a></li>
+				
+					<li><a href="../../RLayout/Runtime.html">RLayout::Runtime</a></li>
+				
+					<li><a href="../../RLayout/Runtime/ErrorFormatter.html">RLayout::Runtime::ErrorFormatter</a></li>
+				
+					<li><a href="../../RLayout/VFSGroup.html">RLayout::VFSGroup</a></li>
+				
+					<li><a href="../../RLayout/VFSNode.html">RLayout::VFSNode</a></li>
+				
+					<li><a href="../../RLayout/VFSStreamableNode.html">RLayout::VFSStreamableNode</a></li>
+				
+				</ul>
+				<div id="no-class-search-results" style="display: none;">No matching classes.</div>
+			</div>
+
+			
+		</div>
+	</div>
+
+	<div id="documentation">
+		<h1 class="class">RLayout::Exporters::LFSZipFile</h1>
+
+		<div id="description">
+			<p>
+Exports the content of a virtual file system to a local zip file.
+</p>
+<p>
+Requires <tt>rubyzip</tt>.
+</p>
+<pre>
+ gem install rubyzip
+</pre>
+<p>
+
+</p>
+
+		</div>
+
+		<!-- Constants -->
+		
+
+		<!-- Attributes -->
+		
+
+		<!-- Methods -->
+		
+		<div id="public-class-method-details" class="method-section section">
+			<h3 class="section-header">Public Class Methods</h3>
+
+		
+			<div id="new-method" class="method-detail ">
+				<a name="method-c-new"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">new</span><span
+						class="method-args">(zipfilepath)</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Initialize with zip filename.
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="new-source">
+<pre>
+    <span class="ruby-comment cmt"># File rlayout/exporters/lfs_zipfile.rb, line 38</span>
+38:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">zipfilepath</span>)
+39:         <span class="ruby-ivar">@filepath</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">expand_path</span>(<span class="ruby-identifier">zipfilepath</span>)
+40:       <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+		</div>
+	
+		<div id="public-instance-method-details" class="method-section section">
+			<h3 class="section-header">Public Instance Methods</h3>
+
+		
+			<div id="cleanup-method" class="method-detail ">
+				<a name="method-i-cleanup"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">cleanup</span><span
+						class="method-args">()</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Remove generated zip file.
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="cleanup-source">
+<pre>
+    <span class="ruby-comment cmt"># File rlayout/exporters/lfs_zipfile.rb, line 77</span>
+77:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">cleanup</span>
+78:         <span class="ruby-identifier">fu_mode</span>.<span class="ruby-identifier">rm_rf</span>(<span class="ruby-ivar">@filepath</span>) <span class="ruby-keyword kw">if</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">exist?</span>(<span class="ruby-ivar">@filepath</span>)
+79:       <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+			<div id="epilogue-method" class="method-detail ">
+				<a name="method-i-epilogue"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">epilogue</span><span
+						class="method-args">()</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Epilogue.
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="epilogue-source">
+<pre>
+    <span class="ruby-comment cmt"># File rlayout/exporters/lfs_zipfile.rb, line 72</span>
+72:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">epilogue</span>
+73:         <span class="ruby-ivar">@zipfile</span>.<span class="ruby-identifier">close</span>
+74:       <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+			<div id="group-method" class="method-detail ">
+				<a name="method-i-group"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">group</span><span
+						class="method-args">(node, parent_path)</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Process group.
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="group-source">
+<pre>
+    <span class="ruby-comment cmt"># File rlayout/exporters/lfs_zipfile.rb, line 51</span>
+51:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">group</span>(<span class="ruby-identifier">node</span>, <span class="ruby-identifier">parent_path</span>)
+52:         <span class="ruby-identifier">mypath</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-identifier">parent_path</span>, <span class="ruby-identifier">node</span>.<span class="ruby-identifier">name</span>)
+53:         <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@opts</span>[<span class="ruby-value">:dry_run</span>]
+54:           <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;mkdir #{mypath} in zip&quot;</span>
+55:         <span class="ruby-keyword kw">else</span>
+56:           <span class="ruby-ivar">@zipfile</span>.<span class="ruby-identifier">dir</span>.<span class="ruby-identifier">mkdir</span>(<span class="ruby-identifier">mypath</span>)
+57:         <span class="ruby-keyword kw">end</span>
+58:         <span class="ruby-identifier">mypath</span>
+59:       <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+			<div id="leaf-method" class="method-detail ">
+				<a name="method-i-leaf"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">leaf</span><span
+						class="method-args">(node, parent_path)</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Process leaf.
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="leaf-source">
+<pre>
+    <span class="ruby-comment cmt"># File rlayout/exporters/lfs_zipfile.rb, line 62</span>
+62:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">leaf</span>(<span class="ruby-identifier">node</span>, <span class="ruby-identifier">parent_path</span>)
+63:         <span class="ruby-identifier">mypath</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-identifier">parent_path</span>, <span class="ruby-identifier">node</span>.<span class="ruby-identifier">name</span>)
+64:         <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@opts</span>[<span class="ruby-value">:dry_run</span>]
+65:           <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;write #{mypath} in zip&quot;</span>
+66:         <span class="ruby-keyword kw">else</span>
+67:           <span class="ruby-constant">MyStreamHandler</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@zipfile</span>, <span class="ruby-identifier">mypath</span>)
+68:         <span class="ruby-keyword kw">end</span>
+69:       <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+			<div id="prologue-method" class="method-detail ">
+				<a name="method-i-prologue"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">prologue</span><span
+						class="method-args">(root, opts)</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Prologue.
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="prologue-source">
+<pre>
+    <span class="ruby-comment cmt"># File rlayout/exporters/lfs_zipfile.rb, line 43</span>
+43:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">prologue</span>(<span class="ruby-identifier">root</span>, <span class="ruby-identifier">opts</span>)
+44:         <span class="ruby-ivar">@opts</span> = <span class="ruby-identifier">opts</span>
+45:         <span class="ruby-identifier">fu_mode</span>.<span class="ruby-identifier">rm_rf</span>(<span class="ruby-ivar">@filepath</span>) <span class="ruby-keyword kw">if</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">exist?</span>(<span class="ruby-ivar">@filepath</span>)
+46:         <span class="ruby-ivar">@zipfile</span> = <span class="ruby-constant">Zip</span><span class="ruby-operator">::</span><span class="ruby-constant">ZipFile</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@filepath</span>, <span class="ruby-keyword kw">true</span>)
+47:         <span class="ruby-value str">''</span>
+48:       <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+		</div>
+	
+		<div id="protected-instance-method-details" class="method-section section">
+			<h3 class="section-header">Protected Instance Methods</h3>
+
+		
+			<div id="fu-mode-method" class="method-detail ">
+				<a name="method-i-fu_mode"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">fu_mode</span><span
+						class="method-args">()</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Fileutils mode.
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="fu-mode-source">
+<pre>
+    <span class="ruby-comment cmt"># File rlayout/exporters/lfs_zipfile.rb, line 84</span>
+84:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">fu_mode</span>
+85:         <span class="ruby-keyword kw">if</span> (<span class="ruby-ivar">@opts</span>[<span class="ruby-value">:dry_run</span>])
+86:           <span class="ruby-constant">FileUtils</span><span class="ruby-operator">::</span><span class="ruby-constant">DryRun</span>
+87:         <span class="ruby-keyword kw">else</span>
+88:           <span class="ruby-constant">FileUtils</span>
+89:         <span class="ruby-keyword kw">end</span>
+90:       <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+		</div>
+	
+
+	</div>
+
+
+	<div id="rdoc-debugging-section-dump" class="debugging-section">
+	
+		<p>Disabled; run with --debug to generate this.</p>
+	
+	</div>
+
+	<div id="validator-badges">
+		<p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+		<p><small>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish
+			Rdoc Generator</a> 1.1.6</small>.</p>
+	</div>
+
+</body>
+</html>
+
