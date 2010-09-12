@@ -41,3 +41,15 @@ Rake::RDocTask.new do |rd|
   rd.rdoc_dir = "../doc_tmp"
   rd.rdoc_files.include('README', 'License', 'rlayout.rb', 'rlayout/**/*.rb')
 end
+
+begin 
+  require 'yard'
+  require 'yard/rake/yardoc_task'
+
+  YARD::Rake::YardocTask.new(:yarddoc) do |yt|
+    yt.files   = ['README', 'License', 'rlayout.rb', 'rlayout/**/*.rb']
+    yt.options = ['--readme', 'README']
+  end
+  
+rescue LoadError
+end
