@@ -43,7 +43,7 @@ Either generate it from the source yourself by typing
 ```
 rake rdoc
 ```
-or browse it [online](http://rlayout.googlecode.com/svn/trunk/docs/index.html).
+or browse it [online](https://raw.githubusercontent.com/cheind/rlayout/master/docs/index.html).
 
 ## Design Overview ##
 RLayout uses importers to accumulate content from various sources. These RLayout.Importers provide information nodes (VFSNode) for RLayouts virtual file system (VFSGroup). These nodes contain information on the content and methods to read the content in chunks. Once the importing step is completed, RLayout uses exporters (RLayout.Exporters) to package the content of the virtual file system physically.
